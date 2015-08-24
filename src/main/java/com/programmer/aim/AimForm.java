@@ -1,8 +1,10 @@
 package com.programmer.aim;
 
 import com.programmer.step.Step;
+import com.programmer.step.StepForm;
 import org.hibernate.validator.constraints.NotBlank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ public class AimForm {
     @NotBlank
     private Long priority;
 
-    private List<Step> steps;
+    private List<StepForm> stepForms;
 
     public String getDescription() {
         return description;
@@ -34,15 +36,18 @@ public class AimForm {
         this.priority = priority;
     }
 
-    public List<Step> getSteps() {
-        return steps;
+    public List<StepForm> getStepForms() {
+        return stepForms;
     }
 
-    public void setSteps(List<Step> steps) {
-        this.steps = steps;
+    public void setStepForms(List<StepForm> stepForms) {
+        this.stepForms = stepForms;
     }
 
     public Aim createAim() {
+        List<Step> steps = new ArrayList<>();
+        for(StepForm stepForm : stepForms)
+            steps.add(stepForm.createStep());
         return new Aim(description, steps, priority);
     }
 }

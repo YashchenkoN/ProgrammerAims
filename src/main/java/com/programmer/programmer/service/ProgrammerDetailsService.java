@@ -1,6 +1,9 @@
 package com.programmer.programmer.service;
 
+import com.programmer.aim.Aim;
 import com.programmer.programmer.Programmer;
+import com.programmer.step.Difficult;
+import com.programmer.step.Step;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,7 +29,11 @@ public class ProgrammerDetailsService implements UserDetailsService {
 
     @PostConstruct
     protected void initialize() {
-        programmerService.add(new Programmer("admin", "admin", "admin", "ROLE_ADMIN"));
+        Programmer programmer = new Programmer("admin", "admin", "admin", "ROLE_ADMIN");
+        Aim aim = new Aim("New description", 1L);
+        aim.addStep(new Step(Difficult.EASY, "SPEC"));
+        programmer.addAim(aim);
+        programmerService.add(programmer);
     }
 
     @Override

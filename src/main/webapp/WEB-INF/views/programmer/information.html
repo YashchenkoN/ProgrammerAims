@@ -19,11 +19,24 @@
             <span th:text="'You must activate your email'">Test</span>
         </div>
     </th:block>
-    <div>
+    <div class="programmer_info">
         <span th:object="${programmer}">
             <span th:text="'ИМЯ: ' + *{name}"/><br/>
             <span th:text="'ПОСЛЕДНИЙ ВИЗИТ: '"/>
         </span>
+    </div>
+
+    <div class="container_aims">
+        <th:block th:if="${aims != null}">
+            <div th:each="two_aims : ${T(com.google.common.collect.Lists).partition(aims, 2)}" class="row-fluid">
+                <div th:each="aim : ${two_aims}" class="span6">
+                    <div th:replace="programmer/aim_template::aim-template(${aim})"/>
+                </div>
+            </div>
+        </th:block>
+        <div th:if="${#lists.isEmpty(aims)}">
+            <span>Нет целей</span>
+        </div>
     </div>
 </div>
 </body>

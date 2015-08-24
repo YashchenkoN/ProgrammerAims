@@ -1,6 +1,7 @@
 package com.programmer.aim.service;
 
 import com.programmer.aim.Aim;
+import com.programmer.programmer.Programmer;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface AimService {
 
     public Aim update(Aim aim);
 
-    public List<Aim> getListOfProgrammerAims(Long id);
+    public List<Aim> getListOfProgrammerAims(Programmer programmer);
 
 }

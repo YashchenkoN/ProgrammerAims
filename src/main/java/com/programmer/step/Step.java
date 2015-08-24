@@ -29,6 +29,13 @@ public class Step {
     @JoinTable(name = "aim", joinColumns = @JoinColumn(name = "step_id"), inverseJoinColumns = @JoinColumn(name = "aim_id"))
     private Aim aim;
 
+    public Step() {}
+
+    public Step(Difficult difficult, String specification) {
+        this.difficult = difficult;
+        this.specification = specification;
+    }
+
     public Long getId() {
         return id;
     }

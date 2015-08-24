@@ -29,7 +29,7 @@ import javax.inject.Singleton;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:persistence.properties")
+@PropertySource("classpath:settings.properties")
 @ComponentScan(basePackageClasses = Application.class, includeFilters = @Filter(Controller.class), useDefaultFilters = false)
 class WebMvcConfig extends WebMvcConfigurationSupport {
 

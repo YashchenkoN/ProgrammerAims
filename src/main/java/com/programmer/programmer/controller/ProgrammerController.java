@@ -1,5 +1,7 @@
 package com.programmer.programmer.controller;
 
+import com.programmer.aim.Aim;
+import com.programmer.aim.service.AimService;
 import com.programmer.programmer.Programmer;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
@@ -25,6 +27,9 @@ public class ProgrammerController {
     @Autowired
     private ProgrammerService programmerService;
 
+    @Autowired
+    private AimService aimService;
+
     @RequestMapping(value = "/current", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
@@ -38,7 +43,12 @@ public class ProgrammerController {
         if(id != null) {
             Programmer programmer = programmerService.findById(id);
             if(programmer != null) {
+                List<Aim> programmerAims = aimService.getListOfProgrammerAims(programmer);
+                for(Aim aim : programmerAims) {
+                    System.out.println(aim);
+                }
                 model.addAttribute("programmer", programmer);
+                model.addAttribute("aims", programmerAims);
                 return "programmer/information";
             } else {
                 MessageHelper.addErrorAttribute(ra, "programmer.notfound");

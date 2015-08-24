@@ -19,9 +19,10 @@ import java.util.Properties;
 
 @Configuration
 @EnableWebMvcSecurity
+@PropertySource("classpath:settings.properties")
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${mail.username")
+    @Value("${mail.username}")
     private String mailUsername;
 
     @Value("${mail.password}")
@@ -36,6 +37,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     public JavaMailSenderImpl javaMailSender() {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
         javaMailSender.setHost("smtp.gmail.com");
+        System.out.println(mailUsername);
+        System.out.println(mailPassword);
         javaMailSender.setUsername(mailUsername);
         javaMailSender.setPassword(mailPassword);
         Properties properties = new Properties();

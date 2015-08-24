@@ -2,6 +2,7 @@ package com.programmer.aim.service;
 
 import com.programmer.aim.Aim;
 import com.programmer.aim.dao.AimDao;
+import com.programmer.programmer.Programmer;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,8 +46,8 @@ public class AimServiceImpl implements AimService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<Aim> getListOfProgrammerAims(Long id) {
+    public List<Aim> getListOfProgrammerAims(Programmer programmer) {
         return aimDao.getSession().createCriteria(Aim.class)
-                .add(Restrictions.eq("programmer_id", id)).list();
+                .add(Restrictions.eq("programmer", programmer)).list();
     }
 }

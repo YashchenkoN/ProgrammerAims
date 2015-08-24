@@ -41,14 +41,19 @@ public class Aim {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar added;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinTable(name = "programmer", joinColumns = @JoinColumn(name = "aim_id")
-            , inverseJoinColumns = @JoinColumn(name = "programmer_id"))
+    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "programmer_id")
     private Programmer programmer;
 
     public Aim() {
         steps = new ArrayList<>();
         added = Calendar.getInstance();
+    }
+
+    public Aim(String description, Long priority) {
+        this();
+        this.description = description;
+        this.priority = priority;
     }
 
     public Aim(String description, List<Step> steps, Long priority) {
@@ -122,5 +127,10 @@ public class Aim {
 
     public void remove(Step step) {
         steps.remove(step);
+    }
+
+    @Override
+    public String toString() {
+        return "[name=" + name + ", description=" + description;
     }
 }

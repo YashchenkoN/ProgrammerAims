@@ -32,4 +32,6 @@ public interface ProgrammerService {
 
     public List<Programmer> getListOfProgrammers();
 
+    public Programmer getLoggedProgrammer();
+
 }

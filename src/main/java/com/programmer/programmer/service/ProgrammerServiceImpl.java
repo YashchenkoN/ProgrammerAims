@@ -73,4 +73,9 @@ public class ProgrammerServiceImpl implements ProgrammerService {
 				.list();
 	}
 
+	@Override
+	public Programmer getLoggedProgrammer() {
+		return findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+	}
+
 }

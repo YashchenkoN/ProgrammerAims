@@ -13,12 +13,28 @@ import java.util.List;
 public class AimForm {
 
     @NotBlank
+    private String name;
+
+    @NotBlank
     private String description;
 
     @NotBlank
     private Long priority;
 
     private List<StepForm> stepForms;
+
+    public AimForm() {
+        stepForms = new ArrayList<>();
+        stepForms.add(new StepForm());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;
@@ -48,6 +64,6 @@ public class AimForm {
         List<Step> steps = new ArrayList<>();
         for(StepForm stepForm : stepForms)
             steps.add(stepForm.createStep());
-        return new Aim(description, steps, priority);
+        return new Aim(name, description, steps, priority);
     }
 }

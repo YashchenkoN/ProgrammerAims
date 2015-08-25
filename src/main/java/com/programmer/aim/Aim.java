@@ -50,14 +50,16 @@ public class Aim {
         added = Calendar.getInstance();
     }
 
-    public Aim(String description, Long priority) {
+    public Aim(String name, String description, Long priority) {
         this();
+        this.name = name;
         this.description = description;
         this.priority = priority;
     }
 
-    public Aim(String description, List<Step> steps, Long priority) {
+    public Aim(String name, String description, List<Step> steps, Long priority) {
         added = Calendar.getInstance();
+        this.name = name;
         this.description = description;
         this.steps = steps;
         this.priority = priority;

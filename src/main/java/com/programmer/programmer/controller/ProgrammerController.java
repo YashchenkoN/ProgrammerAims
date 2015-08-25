@@ -30,14 +30,6 @@ public class ProgrammerController {
     @Autowired
     private AimService aimService;
 
-    @RequestMapping(value = "/current", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody
-    public Programmer programmers(Principal principal) {
-        Assert.notNull(principal);
-        return programmerService.findByEmail(principal.getName());
-    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String getProgrammerById(@PathVariable Long id, Model model, RedirectAttributes ra) {
         if(id != null) {

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="#{view.index.title}">Настройки</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
+<div class="container">
+    <th:block th:if="${message != null}">
+        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
+    </th:block>
+    <th:block th:if="${programmer.role == 'ROLE_UNACTIVE'}">
+        <div th:fragment="alert (type, message)" class="alert alert-dismissable" th:classappend="'alert-danger'">
+            <span th:text="'You must activate your email'">Test</span>
+        </div>
+    </th:block>
+
+    <form class="form-narrow form-horizontal" action="aim/add" method="post" th:object="${aimForm}">
+        <th:block th:if="${#fields.hasErrors('${programmerForm.*}')}">
+            <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
+        </th:block>
+        <fieldset>
+            <div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+                <label for="name" class="col-lg-2 control-label">Название цели</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}" autocomplete="off"/>
+                    <span class="help-block" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Поле не может быть пустым</span>
+                </div>
+            </div>
+
+            <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+                <label for="name" class="col-lg-2 control-label">Описание цели</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="description" placeholder="Password" th:field="*{description}" autocomplete="off"/>
+                    <span class="help-block" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Некорректное описание</span>
+                </div>
+            </div>
+
+            <ul th:each="stepForm : *{stepForms}">
+                <li>
+                    <select name="difficult-selector" th:field="${stepForm.difficult}">
+                        <option th:each="difficult : ${T(com.programmer.step.Difficult).values()}" th:value="${difficult}"
+                                th:text="#{__${difficult.value}__}"
+                                th:selected="${difficult == T(com.programmer.step.Difficult).NODIFFICULT}">
+                        </option>
+                    </select>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('specification')}? 'has-error'">
+                        <label for="name" class="col-lg-2 control-label">Описание шага</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="specification" placeholder="Specification"
+                                   th:field="${stepForm.specification}" autocomplete="off"/>
+                            <span class="help-block" th:if="${#fields.hasErrors('specification')}"
+                                  th:errors="${stepForm.specification}">Некорректное описание</span>
+                        </div>
+                    </div>
+                    <button type="submit" name="addRow">Добавить шаг</button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

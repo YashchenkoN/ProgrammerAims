@@ -1,6 +1,7 @@
 package com.programmer.programmer;
 
 import com.programmer.aim.Aim;
+import com.programmer.media.FileEntity;
 import com.programmer.utils.KeyGenerationUtil;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -49,9 +50,8 @@ public class Programmer implements Serializable {
     @Column(name = "role")
     private String role;
 
-    @Column(name = "avatar")
-    @Lob
-    private byte[] avatar;
+    @JoinColumn(name = "avatar_id")
+    private FileEntity fileEntity;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "programmer")
     private List<Aim> aims;
@@ -145,12 +145,12 @@ public class Programmer implements Serializable {
         this.role = role;
     }
 
-    public byte[] getAvatar() {
-        return avatar;
+    public FileEntity getFileEntity() {
+        return fileEntity;
     }
 
-    public void setAvatar(byte[] avatar) {
-        this.avatar = avatar;
+    public void setFileEntity(FileEntity fileEntity) {
+        this.fileEntity = fileEntity;
     }
 
     public List<Aim> getAims() {

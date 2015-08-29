@@ -5,8 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
     <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <link href="../../../resources/css/settings.css" rel="stylesheet" media="screen" th:href="@{/resources/css/settings.css}" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <script src="../../../resources/js/dropzone.js" th:src="@{/resources/js/dropzone.js}"></script>
+    <script src="../../../resources/js/upload.js" th:src="@{/resources/js/upload.js}"></script>
 </head>
 <body>
 <div th:replace="fragments/header :: header">&nbsp;</div>
@@ -22,13 +25,19 @@
             <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
         </th:block>
         <fieldset>
-            <div class="form-group">
-                <label for="name" class="col-lg-2 control-label">Аватарка</label>
-                <div class="col-lg-10">
-                    <form th:action="@{/fileUpload}" method="get" enctype="multipart/form-data">
-                        <input type="file" name="myFile" />
-                    </form>
-                </div>
+            <div class="panel-body">
+                <form id="dropzone-form" class="dropzone" enctype="multipart/form-data" action="/files/upload">
+                    <div class="dz-default dz-message file-dropzone text-center well col-sm-12">
+                        <span class="glyphicon glyphicon-paperclip"/>
+                        <span>To attach files, drag and drop here</span>
+                        <span>OR</span>
+                        <span>Just Click</span>
+                    </div>
+                    <div class="dropzone-previews"/>
+                </form>
+                <button id="upload-button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-upload">Upload</span>
+                </button>
             </div>
             <div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
                 <label for="name" class="col-lg-2 control-label">Имя</label>

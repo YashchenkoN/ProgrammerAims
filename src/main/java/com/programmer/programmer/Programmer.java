@@ -50,6 +50,7 @@ public class Programmer implements Serializable {
     @Column(name = "role")
     private String role;
 
+    @OneToOne
     @JoinColumn(name = "avatar_id")
     private FileEntity fileEntity;
 

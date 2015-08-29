@@ -30,7 +30,7 @@ public class ProgrammerDetailsService implements UserDetailsService {
     @PostConstruct
     protected void initialize() {
         Programmer programmer = new Programmer("admin", "admin", "admin", "ROLE_ADMIN");
-        Aim aim = new Aim("New description", 1L);
+        Aim aim = new Aim("Name", "New description", 1L);
         aim.addStep(new Step(Difficult.EASY, "SPEC"));
         programmer.addAim(aim);
         programmerService.add(programmer);

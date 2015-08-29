@@ -22,8 +22,10 @@ public class AimServiceImpl implements AimService {
     @Transactional(readOnly = true)
     @Override
     public Aim findByName(String name) {
-        return (Aim) aimDao.getSession().createCriteria(Aim.class)
-                .add(Restrictions.eq("name", name)).uniqueResult();
+        return (Aim) aimDao.getSession()
+                .createCriteria(Aim.class)
+                .add(Restrictions.eq("name", name))
+                .uniqueResult();
     }
 
     @Transactional(readOnly = true)
@@ -44,10 +46,13 @@ public class AimServiceImpl implements AimService {
         return aimDao.update(aim);
     }
 
+    @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
     @Override
     public List<Aim> getListOfProgrammerAims(Programmer programmer) {
-        return aimDao.getSession().createCriteria(Aim.class)
-                .add(Restrictions.eq("programmer", programmer)).list();
+        return aimDao.getSession()
+                .createCriteria(Aim.class)
+                .add(Restrictions.eq("programmer", programmer))
+                .list();
     }
 }

@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.templatemode.StandardTemplateModeHandlers;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 
@@ -60,7 +61,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         TemplateResolver templateResolver = new ServletContextTemplateResolver();
         templateResolver.setPrefix(VIEWS);
         templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
+        templateResolver.setTemplateMode("LEGACYHTML5");
         templateResolver.setCacheable(false);
         return templateResolver;
     }
@@ -78,6 +79,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         thymeleafViewResolver.setTemplateEngine(templateEngine());
         thymeleafViewResolver.setCharacterEncoding("UTF-8");
+        thymeleafViewResolver.setContentType("text/html; charset=UTF-8");
         return thymeleafViewResolver;
     }
 

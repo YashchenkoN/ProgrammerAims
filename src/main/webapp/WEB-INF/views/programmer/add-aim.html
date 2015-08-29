@@ -36,8 +36,10 @@
             <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
                 <label for="name" class="col-lg-2 control-label">Описание цели</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="description" placeholder="Password" th:field="*{description}" autocomplete="off"/>
-                    <span class="help-block" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Некорректное описание</span>
+                    <input type="text" class="form-control" id="description" placeholder="Password"
+                           th:field="*{description}" autocomplete="off"/>
+                    <span class="help-block" th:if="${#fields.hasErrors('description')}"
+                          th:errors="*{description}">Некорректное описание</span>
                 </div>
             </div>
 
@@ -52,10 +54,8 @@
                     <div class="form-group" th:classappend="${#fields.hasErrors('specification')}? 'has-error'">
                         <label for="name" class="col-lg-2 control-label">Описание шага</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="specification" placeholder="Specification"
-                                   th:field="${stepForm.specification}" autocomplete="off"/>
-                            <span class="help-block" th:if="${#fields.hasErrors('specification')}"
-                                  th:errors="${stepForm.specification}">Некорректное описание</span>
+                            <input type="text" class="form-control" id="specification" placeholder="Specification" th:field="${stepForm.specification}" autocomplete="off"/>
+                            <span class="help-block" th:if="${#fields.hasErrors('specification')}" th:errors="${stepForm.specification}">Некорректное описание</span>
                         </div>
                     </div>
                     <button type="submit" name="addRow">Добавить шаг</button>

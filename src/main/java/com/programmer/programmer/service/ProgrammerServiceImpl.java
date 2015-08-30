@@ -37,7 +37,8 @@ public class ProgrammerServiceImpl implements ProgrammerService {
 	@Transactional(readOnly = true)
 	@Override
 	public Programmer findByActivationKey(String activationKey) {
-		return (Programmer) programmerDao.getSession().createCriteria(Programmer.class)
+		return (Programmer) programmerDao.getSession()
+				.createCriteria(Programmer.class)
 				.add(Restrictions.eq("activationKey", activationKey))
 				.uniqueResult();
 	}
@@ -45,7 +46,8 @@ public class ProgrammerServiceImpl implements ProgrammerService {
 	@Transactional(readOnly = true)
 	@Override
 	public Programmer findById(Long id) {
-		return (Programmer) programmerDao.getSession().createCriteria(Programmer.class)
+		return (Programmer) programmerDao.getSession()
+				.createCriteria(Programmer.class)
 				.add(Restrictions.eq("id", id))
 				.uniqueResult();
 	}
@@ -66,13 +68,16 @@ public class ProgrammerServiceImpl implements ProgrammerService {
 		return programmerDao.update(programmer);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	@Override
 	public List<Programmer> getListOfProgrammers() {
-		return programmerDao.getSession().createCriteria(Programmer.class)
+		return programmerDao.getSession()
+				.createCriteria(Programmer.class)
 				.list();
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Programmer getLoggedProgrammer() {
 		return findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());

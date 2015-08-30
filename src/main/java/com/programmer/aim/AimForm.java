@@ -25,7 +25,6 @@ public class AimForm {
 
     public AimForm() {
         stepForms = new ArrayList<>();
-        stepForms.add(new StepForm());
     }
 
     public String getName() {

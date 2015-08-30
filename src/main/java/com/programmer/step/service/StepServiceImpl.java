@@ -37,10 +37,13 @@ public class StepServiceImpl implements StepService {
         return stepDao.update(step);
     }
 
+    @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
     @Override
     public List<Step> getListOfAimById(Long id) {
-        return stepDao.getSession().createCriteria(Step.class)
-                .add(Restrictions.eq("aim_id", id)).list();
+        return stepDao.getSession()
+                .createCriteria(Step.class)
+                .add(Restrictions.eq("aim_id", id))
+                .list();
     }
 }

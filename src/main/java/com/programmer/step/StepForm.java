@@ -9,7 +9,6 @@ public class StepForm {
 
     private Difficult difficult;
 
-    @NotNull
     private String specification;
 
     public Difficult getDifficult() {

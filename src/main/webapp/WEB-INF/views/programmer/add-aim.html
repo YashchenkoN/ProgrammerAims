@@ -4,7 +4,7 @@
     <title th:text="#{view.index.title}">Настройки</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
-    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <link href="../../../resources/css/aim-add.css" rel="stylesheet" media="screen" th:href="@{/resources/css/aim-add.css}" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
@@ -20,47 +20,56 @@
         </div>
     </th:block>
 
-    <form class="form-narrow form-horizontal" action="aim/add" method="post" th:object="${aimForm}">
-        <th:block th:if="${#fields.hasErrors('${programmerForm.*}')}">
+    <form class="form-narrow form-horizontal" action="#" th:action="@{/aim/add}" method="post" th:object="${aimForm}">
+        <th:block th:if="${#fields.hasErrors('${aimForm.*}')}">
             <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
         </th:block>
         <fieldset>
             <div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
-                <label for="name" class="col-lg-2 control-label">Название цели</label>
-                <div class="col-lg-10">
+                <label for="name" class="col-lg-4 control-label">Название цели</label>
+                <div class="col-lg-8">
                     <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}" autocomplete="off"/>
                     <span class="help-block" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Поле не может быть пустым</span>
                 </div>
             </div>
 
             <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
-                <label for="name" class="col-lg-2 control-label">Описание цели</label>
-                <div class="col-lg-10">
+                <label for="name" class="col-lg-4 control-label">Описание цели</label>
+                <div class="col-lg-8">
                     <input type="text" class="form-control" id="description" placeholder="Password"
                            th:field="*{description}" autocomplete="off"/>
                     <span class="help-block" th:if="${#fields.hasErrors('description')}"
                           th:errors="*{description}">Некорректное описание</span>
                 </div>
             </div>
-
-            <ul th:each="stepForm : *{stepForms}">
-                <li>
-                    <select name="difficult-selector" th:field="${stepForm.difficult}">
-                        <option th:each="difficult : ${T(com.programmer.step.Difficult).values()}" th:value="${difficult}"
-                                th:text="#{__${difficult.value}__}"
-                                th:selected="${difficult == T(com.programmer.step.Difficult).NODIFFICULT}">
-                        </option>
-                    </select>
-                    <div class="form-group" th:classappend="${#fields.hasErrors('specification')}? 'has-error'">
-                        <label for="name" class="col-lg-2 control-label">Описание шага</label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="specification" placeholder="Specification" th:field="${stepForm.specification}" autocomplete="off"/>
-                            <span class="help-block" th:if="${#fields.hasErrors('specification')}" th:errors="${stepForm.specification}">Некорректное описание</span>
-                        </div>
+            <button type="submit" name="addRow">Добавить шаг</button>
+            <div th:each="stepForm, rowStat : *{stepForms}">
+                <!--<ul>-->
+                <div class="form-group">
+                    <label for="difficult" class="col-lg-4 control-label">Сложность</label>
+                    <div class="col-lg-8">
+                        <select id="difficult" name="difficult-selector" th:field="*{stepForms[__${rowStat.index}__].difficult}">
+                            <option th:each="difficult : ${T(com.programmer.step.Difficult).values()}"
+                                    th:value="${difficult}"
+                                    th:text="${difficult.value}">
+                            </option>
+                        </select>
                     </div>
-                    <button type="submit" name="addRow">Добавить шаг</button>
-                </li>
-            </ul>
+                </div>
+                <div class="form-group">
+                    <label for="specification" class="col-lg-4 control-label">Описание шага</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="specification" placeholder="Specification" th:field="*{stepForms[__${rowStat.index}__].specification}" autocomplete="off"/>
+                    </div>
+                </div>
+                <!-- </ul>-->
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-offset-8 col-lg-8">
+                    <button type="submit" class="btn btn-default">Сохранить</button>
+                </div>
+            </div>
         </fieldset>
     </form>
 </div>

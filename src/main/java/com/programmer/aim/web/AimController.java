@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Objects;
 
@@ -54,6 +55,17 @@ public class AimController {
     public String addRow(AimForm aimForm, BindingResult bindingResult, Model model) {
         model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         aimForm.getStepForms().add(new StepForm());
+        return "programmer/add-aim";
+    }
+
+    @RequestMapping(value = "/add", params = {"removeRow"})
+    public String removeRow(AimForm aimForm, BindingResult bindingResult, Model model,
+                            HttpServletRequest request) {
+        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
+        Integer index = Integer.valueOf(request.getParameter("removeRow"));
+        if(!aimForm.getStepForms().isEmpty()) {
+            aimForm.getStepForms().remove(index.intValue());
+        }
         return "programmer/add-aim";
     }
 

@@ -19,7 +19,7 @@
         <!-- /* The message code is returned from the @Controller */ -->
         <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
-    <form class="form-narrow form-horizontal" method="post" action="/programmer/settings" th:object="${programmerForm}">
+    <form class="form-narrow form-horizontal" method="post" action="#" th:action="@{/programmer/settings}" th:object="${programmerForm}">
         <!--/* Show general error message when form contains errors */-->
         <th:block th:if="${#fields.hasErrors('${programmerForm.*}')}">
             <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>

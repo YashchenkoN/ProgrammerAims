@@ -26,7 +26,7 @@
                     <a href="/signin" th:href="@{/signin}">Войти</a>
                 </li>
                 <li th:if="${#authorization.expression('isAuthenticated()')}">
-                    <a href="/settings" th:href="@{programmer/settings}">Настройки</a>
+                    <a href="/settings" th:href="@{/programmer/settings}">Настройки</a>
                 </li>
                 <li th:if="${#authorization.expression('isAuthenticated()')}">
                     <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">Выйти</a>

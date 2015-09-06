@@ -37,11 +37,16 @@ public class AimBuilder {
         aim.setProgrammer(programmer);
         Set<Step> steps = aim.getSteps();
         for(Step step : steps) {
-            System.out.println(step);
             step.setAim(aim);
-            stepService.add(step);
+            if(step.getId() != null)
+                stepService.update(step);
+            else
+                stepService.add(step);
         }
-        aimService.add(aim);
+        if(aim.getId() != null)
+            aimService.update(aim);
+        else
+            aimService.add(aim);
         programmer.addAim(aim);
         programmerService.update(programmer);
         return aim;

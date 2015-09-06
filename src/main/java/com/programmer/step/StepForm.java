@@ -7,9 +7,19 @@ import javax.validation.constraints.NotNull;
  */
 public class StepForm {
 
+    private Long stepId;
+
     private Difficult difficult;
 
     private String specification;
+
+    public Long getStepId() {
+        return stepId;
+    }
+
+    public void setStepId(Long stepId) {
+        this.stepId = stepId;
+    }
 
     public Difficult getDifficult() {
         return difficult;
@@ -28,6 +38,7 @@ public class StepForm {
     }
 
     public Step createStep() {
-        return new Step(difficult, specification);
+        return new Step(stepId, difficult, specification);
     }
+
 }

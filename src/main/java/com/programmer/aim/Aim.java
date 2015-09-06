@@ -58,7 +58,7 @@ public class Aim {
         this.priority = priority;
     }
 
-    public Aim(String name, String description, Set<Step> steps, Long priority) {
+    public Aim(Long id, String name, String description, Set<Step> steps, Long priority) {
         added = Calendar.getInstance();
         this.name = name;
         this.description = description;

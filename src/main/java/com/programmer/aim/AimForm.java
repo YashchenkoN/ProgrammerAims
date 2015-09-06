@@ -14,6 +14,8 @@ import java.util.Set;
  */
 public class AimForm {
 
+    private Long aimId;
+
     @NotBlank
     private String name;
 
@@ -23,10 +25,18 @@ public class AimForm {
     @NotBlank
     private Long priority;
 
-    private List<StepForm> stepForms;
+    private Set<StepForm> stepForms;
 
     public AimForm() {
-        stepForms = new ArrayList<>();
+        stepForms = new HashSet<>();
+    }
+
+    public Long getAimId() {
+        return aimId;
+    }
+
+    public void setAimId(Long aimId) {
+        this.aimId = aimId;
     }
 
     public String getName() {
@@ -53,11 +63,11 @@ public class AimForm {
         this.priority = priority;
     }
 
-    public List<StepForm> getStepForms() {
+    public Set<StepForm> getStepForms() {
         return stepForms;
     }
 
-    public void setStepForms(List<StepForm> stepForms) {
+    public void setStepForms(Set<StepForm> stepForms) {
         this.stepForms = stepForms;
     }
 
@@ -65,6 +75,6 @@ public class AimForm {
         Set<Step> steps = new HashSet<>();
         for(StepForm stepForm : stepForms)
             steps.add(stepForm.createStep());
-        return new Aim(name, description, steps, priority);
+        return new Aim(aimId, name, description, steps, priority);
     }
 }

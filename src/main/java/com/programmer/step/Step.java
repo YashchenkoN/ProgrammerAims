@@ -31,7 +31,8 @@ public class Step {
 
     public Step() {}
 
-    public Step(Difficult difficult, String specification) {
+    public Step(Long id, Difficult difficult, String specification) {
+        this.id = id;
         this.difficult = difficult;
         this.specification = specification;
     }

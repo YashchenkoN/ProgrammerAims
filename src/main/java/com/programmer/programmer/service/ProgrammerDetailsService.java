@@ -38,13 +38,14 @@ public class ProgrammerDetailsService implements UserDetailsService {
     @PostConstruct
     protected void initialize() {
         Programmer programmer = new Programmer("admin", "admin", "admin", "ROLE_ADMIN");
+        programmerService.add(programmer);
         Aim aim = new Aim("Name", "New description", 1L);
         Step step = new Step(Difficult.EASY, "SPEC");
+        stepService.add(step);
         aim.addStep(step);
         programmer.addAim(aim);
-        stepService.add(step);
         aimService.update(aim);
-        programmerService.update(programmer);
+
     }
 
     @Override

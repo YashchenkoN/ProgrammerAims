@@ -55,4 +55,10 @@ public class AimServiceImpl implements AimService {
                 .add(Restrictions.eq("programmer", programmer))
                 .list();
     }
+
+    @Transactional
+    @Override
+    public void delete(Aim aim) {
+        aimDao.delete(aim);
+    }
 }

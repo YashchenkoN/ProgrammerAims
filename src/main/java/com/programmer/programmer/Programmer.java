@@ -54,7 +54,7 @@ public class Programmer implements Serializable {
     @JoinColumn(name = "avatar_id")
     private FileEntity fileEntity;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
     private Set<Aim> aims;
 

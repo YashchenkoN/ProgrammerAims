@@ -25,7 +25,7 @@ public class Step {
     @NotNull
     private String specification;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "aim_id")
     private Aim aim;
 

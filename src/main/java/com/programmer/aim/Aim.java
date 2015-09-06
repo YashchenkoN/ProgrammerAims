@@ -42,7 +42,7 @@ public class Aim {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar added;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "programmer_id")
     private Programmer programmer;
 

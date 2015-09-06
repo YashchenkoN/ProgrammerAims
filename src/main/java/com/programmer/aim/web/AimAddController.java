@@ -28,7 +28,7 @@ import java.util.Objects;
  */
 @Controller
 @RequestMapping(value = "aim")
-public class AimController {
+public class AimAddController {
 
     @Autowired
     private ProgrammerService programmerService;

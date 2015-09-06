@@ -20,4 +20,6 @@ public interface AimService {
 
     public List<Aim> getListOfProgrammerAims(Programmer programmer);
 
+    public void delete(Aim aim);
+
 }

@@ -2,6 +2,8 @@ package com.programmer.aim;
 
 import com.programmer.programmer.Programmer;
 import com.programmer.step.Step;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -28,7 +30,8 @@ public class Aim {
     @NotNull
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
     private Set<Step> steps;
 
     @Column(name = "priority")

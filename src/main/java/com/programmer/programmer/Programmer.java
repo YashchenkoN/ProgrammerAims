@@ -3,6 +3,8 @@ package com.programmer.programmer;
 import com.programmer.aim.Aim;
 import com.programmer.media.FileEntity;
 import com.programmer.utils.KeyGenerationUtil;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -52,7 +54,8 @@ public class Programmer implements Serializable {
     @JoinColumn(name = "avatar_id")
     private FileEntity fileEntity;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SUBSELECT)
     private Set<Aim> aims;
 
     public Programmer() {

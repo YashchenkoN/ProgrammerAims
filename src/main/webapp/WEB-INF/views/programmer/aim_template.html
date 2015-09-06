@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:format="http://www.w3.org/1999/xhtml">
 <div th:fragment="aim-template(aim)">
-    <div class="aim_info">
-        <span th:text="${aim.name}">Имя</span>
-        <span th:text="${aim.description}">Инфо</span>
-        <ul>
-            <li class="steps_li" th:each="step : ${aim.steps}">
-                <div class="step_info">
-                    <span th:text="${step.difficult}">Сложность</span>
-                    <span th:text="${step.specification}">Инфо</span>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>Цель</h3></div>
+            <div class="panel-body">
+                <div class="aim_info">
+                    <span th:text="'Название цели:' + ${aim.name}">Имя</span><br>
+                    <span th:text="'Описание: ' + ${aim.description}">Инфо</span>
+                    <ul>
+                        <li class="steps_li" th:each="step, rowStat : ${aim.steps}">
+                            <div class="step_info">
+                                <h4 th:text="'Шаг ' + ${rowStat.count}"></h4>
+                                <span th:text="'Сложность: ' + ${step.difficult}">Сложность</span><br>
+                                <span th:text="'Инфо: ' + ${step.specification}">Инфо</span><br>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </div>

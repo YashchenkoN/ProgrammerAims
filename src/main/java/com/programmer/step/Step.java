@@ -25,8 +25,8 @@ public class Step {
     @NotNull
     private String specification;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinTable(name = "aim", joinColumns = @JoinColumn(name = "step_id"), inverseJoinColumns = @JoinColumn(name = "aim_id"))
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "aim_id")
     private Aim aim;
 
     public Step() {}

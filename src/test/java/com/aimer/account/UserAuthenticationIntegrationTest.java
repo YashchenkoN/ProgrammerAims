@@ -1,4 +1,4 @@
-package com.programmer.account;
+package com.aimer.account;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Created by kolyan on 8/30/15.
@@ -34,12 +35,14 @@ public class AimBuilder {
         Programmer programmer = programmerService.getLoggedProgrammer();
         Aim aim = aimForm.createAim();
         aim.setProgrammer(programmer);
-        List<Step> steps = aim.getSteps();
-        programmer.addAim(aim);
-        steps.stream()
-                .filter(Objects::nonNull)
-                .forEach(stepService::add);
+        Set<Step> steps = aim.getSteps();
+        for(Step step : steps) {
+            System.out.println(step);
+            step.setAim(aim);
+            stepService.add(step);
+        }
         aimService.add(aim);
+        programmer.addAim(aim);
         programmerService.update(programmer);
         return aim;
     }

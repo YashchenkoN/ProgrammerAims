@@ -5,9 +5,7 @@ import com.programmer.step.Step;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by kolyan on 8/11/15.
@@ -30,8 +28,8 @@ public class Aim {
     @NotNull
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "aim")
-    private List<Step> steps;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Step> steps;
 
     @Column(name = "priority")
     @NotNull
@@ -41,12 +39,12 @@ public class Aim {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar added;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = true)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "programmer_id")
     private Programmer programmer;
 
     public Aim() {
-        steps = new ArrayList<>();
+        steps = new HashSet<>();
         added = Calendar.getInstance();
     }
 
@@ -57,7 +55,7 @@ public class Aim {
         this.priority = priority;
     }
 
-    public Aim(String name, String description, List<Step> steps, Long priority) {
+    public Aim(String name, String description, Set<Step> steps, Long priority) {
         added = Calendar.getInstance();
         this.name = name;
         this.description = description;
@@ -97,11 +95,11 @@ public class Aim {
         this.description = description;
     }
 
-    public List<Step> getSteps() {
+    public Set<Step> getSteps() {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
+    public void setSteps(Set<Step> steps) {
         this.steps = steps;
     }
 

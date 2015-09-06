@@ -43,6 +43,17 @@
                           th:errors="*{description}">Некорректное описание</span>
                 </div>
             </div>
+
+            <div class="form-group" th:classappend="${#fields.hasErrors('priority')}? 'has-error'">
+                <label for="priority" class="col-lg-4 control-label">Приоритет</label>
+                <div class="col-lg-8">
+                    <select id="priority" class="form-control" th:field="*{priority}">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div>
             <legend>Добавление шагов</legend>
             <div class="form-group" th:with="stepFormList=*{stepForms}">
                 <div class="form-group" th:if="${#lists.isEmpty(stepFormList)}">

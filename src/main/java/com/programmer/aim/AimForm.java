@@ -5,7 +5,9 @@ import com.programmer.step.StepForm;
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by kolyan on 8/11/15.
@@ -60,7 +62,7 @@ public class AimForm {
     }
 
     public Aim createAim() {
-        List<Step> steps = new ArrayList<>();
+        Set<Step> steps = new HashSet<>();
         for(StepForm stepForm : stepForms)
             steps.add(stepForm.createStep());
         return new Aim(name, description, steps, priority);

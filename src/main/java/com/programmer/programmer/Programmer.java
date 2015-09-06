@@ -8,15 +8,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by kolyan on 8/4/15.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "programmers")
 public class Programmer implements Serializable {
 
     @Id
@@ -54,14 +52,14 @@ public class Programmer implements Serializable {
     @JoinColumn(name = "avatar_id")
     private FileEntity fileEntity;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "programmer")
-    private List<Aim> aims;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Aim> aims;
 
     public Programmer() {
         registrationDate = Calendar.getInstance();
         lastVisit = Calendar.getInstance();
         activationKey = KeyGenerationUtil.getKey();
-        aims = new ArrayList<>();
+        aims = new HashSet<>();
     }
 
     public Programmer(Programmer user) {
@@ -154,11 +152,11 @@ public class Programmer implements Serializable {
         this.fileEntity = fileEntity;
     }
 
-    public List<Aim> getAims() {
+    public Set<Aim> getAims() {
         return aims;
     }
 
-    public void setAims(List<Aim> aims) {
+    public void setAims(Set<Aim> aims) {
         this.aims = aims;
     }
 

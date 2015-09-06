@@ -23,7 +23,7 @@
         <th:block th:if="${programmer.aims != null}">
             <div th:each="two_aims : ${T(com.google.common.collect.Lists).partition(programmer.aims, 2)}" class="row-fluid">
                 <div th:each="aim, rowStat : ${two_aims}" class="span6">
-                    <div th:replace="programmer/aim_template::aim-edit-template(${aim}, ${rowStat.index})"/>
+                    <div th:replace="programmer/aim_template::aim-edit-template(${aim})"/>
                 </div>
             </div>
         </th:block>

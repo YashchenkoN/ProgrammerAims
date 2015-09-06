@@ -33,7 +33,6 @@ public class AimEditController {
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit(Model model) {
         Programmer programmer = programmerService.getLoggedProgrammer();
-        //List<Aim> aims = aimService.getListOfProgrammerAims(programmer);
         Set<Aim> aims = programmer.getAims();
         model.addAttribute("programmer", programmer);
         return "programmer/aims-edit";

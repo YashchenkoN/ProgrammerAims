@@ -7,6 +7,7 @@ import com.programmer.aim.builder.AimBuilder;
 import com.programmer.aim.service.AimService;
 import com.programmer.programmer.Programmer;
 import com.programmer.programmer.service.ProgrammerService;
+import com.programmer.step.StepForm;
 import com.programmer.support.web.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -71,19 +72,36 @@ public class AimEditController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editByNumber(@PathVariable Long id, Model model) {
-        AimForm aimForm = aimFormBuilder.buildAimForm(id);
+    public String editByNumber(@PathVariable Long id, Model model, AimForm aimForm) {
+        aimForm = aimFormBuilder.buildAimForm(id);
         model.addAttribute("programmer", programmerService.getLoggedProgrammer());
-        model.addAttribute("aimForm", aimForm);
         return "programmer/aim-edit";
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public String editByNumber(@PathVariable Long id, Model model, AimForm aimForm) {
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String editByNumberPost(@PathVariable Long id, Model model, AimForm aimForm) {
         model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         model.addAttribute("aimForm", aimForm);
         aimBuilder.buildAim(aimForm);
         MessageHelper.addSuccessAttribute(model, "Сохранено");
         return "programmer/aim-edit";
+    }
+
+    @RequestMapping(value = "/edit/{id}", params = {"addRow"})
+    public String addRow(@PathVariable Long id, AimForm aimForm, BindingResult bindingResult, Model model) {
+        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
+        aimForm.getStepForms().add(new StepForm());
+        return "programmer/add-edit";
+    }
+
+    @RequestMapping(value = "/edit/{id}", params = {"removeRow"})
+    public String removeRow(@PathVariable Long id, AimForm aimForm, BindingResult bindingResult, Model model,
+                            HttpServletRequest request) {
+        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
+        Integer index = Integer.valueOf(request.getParameter("removeRow"));
+        if(!aimForm.getStepForms().isEmpty()) {
+            aimForm.getStepForms().remove(index.intValue());
+        }
+        return "programmer/add-edit";
     }
 }

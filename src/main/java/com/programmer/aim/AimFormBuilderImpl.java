@@ -7,7 +7,9 @@ import com.programmer.step.StepFormBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -30,7 +32,7 @@ public class AimFormBuilderImpl implements AimFormBuilder {
         aimForm.setName(aim.getName());
         aimForm.setDescription(aim.getDescription());
         aimForm.setPriority(aim.getPriority());
-        Set<StepForm> stepForms = new HashSet<>();
+        List<StepForm> stepForms = new ArrayList<>();
         for(Step step : aim.getSteps()) {
             stepForms.add(stepFormBuilder.buildStepForm(step));
         }

@@ -32,7 +32,7 @@ public class Aim {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
-    private Set<Step> steps;
+    private List<Step> steps;
 
     @Column(name = "priority")
     @NotNull
@@ -47,7 +47,7 @@ public class Aim {
     private Programmer programmer;
 
     public Aim() {
-        steps = new HashSet<>();
+        steps = new ArrayList<>();
         added = Calendar.getInstance();
     }
 
@@ -58,7 +58,7 @@ public class Aim {
         this.priority = priority;
     }
 
-    public Aim(Long id, String name, String description, Set<Step> steps, Long priority) {
+    public Aim(Long id, String name, String description, List<Step> steps, Long priority) {
         added = Calendar.getInstance();
         this.name = name;
         this.description = description;
@@ -98,11 +98,11 @@ public class Aim {
         this.description = description;
     }
 
-    public Set<Step> getSteps() {
+    public List<Step> getSteps() {
         return steps;
     }
 
-    public void setSteps(Set<Step> steps) {
+    public void setSteps(List<Step> steps) {
         this.steps = steps;
     }
 
@@ -134,6 +134,6 @@ public class Aim {
 
     @Override
     public String toString() {
-        return "[name=" + name + ", description=" + description;
+        return "[name=" + name + ", description=" + description + "]";
     }
 }

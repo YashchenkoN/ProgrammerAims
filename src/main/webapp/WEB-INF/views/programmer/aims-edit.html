@@ -4,6 +4,7 @@
     <title th:text="#{view.index.title}">Настройки</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/aims-edit.css}" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
@@ -23,7 +24,7 @@
         <th:block th:if="${programmer.aims != null}">
             <div th:each="two_aims : ${T(com.google.common.collect.Lists).partition(programmer.aims, 2)}" class="row-fluid">
                 <div th:each="aim, rowStat : ${two_aims}" class="span6">
-                    <div th:replace="programmer/aim_template::aim-edit-template(${aim})"/>
+                    <div th:replace="programmer/aim_template::aim-edit-template(${aim}, ${rowStat.index})"/>
                 </div>
             </div>
         </th:block>

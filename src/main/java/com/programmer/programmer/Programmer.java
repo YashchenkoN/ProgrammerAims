@@ -56,13 +56,13 @@ public class Programmer implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
-    private Set<Aim> aims;
+    private List<Aim> aims;
 
     public Programmer() {
         registrationDate = Calendar.getInstance();
         lastVisit = Calendar.getInstance();
         activationKey = KeyGenerationUtil.getKey();
-        aims = new HashSet<>();
+        aims = new ArrayList<>();
     }
 
     public Programmer(Programmer user) {
@@ -155,11 +155,11 @@ public class Programmer implements Serializable {
         this.fileEntity = fileEntity;
     }
 
-    public Set<Aim> getAims() {
+    public List<Aim> getAims() {
         return aims;
     }
 
-    public void setAims(Set<Aim> aims) {
+    public void setAims(List<Aim> aims) {
         this.aims = aims;
     }
 

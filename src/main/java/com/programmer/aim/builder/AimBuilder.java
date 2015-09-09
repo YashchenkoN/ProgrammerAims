@@ -35,7 +35,7 @@ public class AimBuilder {
         Programmer programmer = programmerService.getLoggedProgrammer();
         Aim aim = aimForm.createAim();
         aim.setProgrammer(programmer);
-        Set<Step> steps = aim.getSteps();
+        List<Step> steps = aim.getSteps();
         for(Step step : steps) {
             step.setAim(aim);
             if(step.getId() != null)

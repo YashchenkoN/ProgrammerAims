@@ -45,7 +45,7 @@ public class AimEditController {
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit(Model model) {
         Programmer programmer = programmerService.getLoggedProgrammer();
-        Set<Aim> aims = programmer.getAims();
+        List<Aim> aims = programmer.getAims();
         model.addAttribute("programmer", programmer);
         return "programmer/aims-edit";
     }
@@ -56,16 +56,19 @@ public class AimEditController {
         Programmer programmer = programmerService.getLoggedProgrammer();
         model.addAttribute("programmer", programmer);
         Integer index = Integer.valueOf(request.getParameter("remove"));
-        Set<Aim> aims = programmer.getAims();
+        List<Aim> aims = programmer.getAims();
         if(!aims.isEmpty()) {
-            Iterator<Aim> iterator = aims.iterator();
+            /*Iterator<Aim> iterator = aims.iterator();
             while(iterator.hasNext()) {
                 Aim aim = iterator.next();
                 if(aim.getId().intValue() == index) {
                     aims.remove(aim);
                     aimService.delete(aim);
                 }
-            }
+            }*/
+            Aim aimToRemove = aims.get(index);
+            aims.remove(aimToRemove);
+            aimService.delete(aimToRemove);
             programmerService.update(programmer);
         }
         return "programmer/aims-edit";

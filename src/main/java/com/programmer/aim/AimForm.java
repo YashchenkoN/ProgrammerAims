@@ -25,10 +25,10 @@ public class AimForm {
     @NotBlank
     private Long priority;
 
-    private Set<StepForm> stepForms;
+    private List<StepForm> stepForms;
 
     public AimForm() {
-        stepForms = new HashSet<>();
+        stepForms = new ArrayList<>();
     }
 
     public Long getAimId() {
@@ -63,16 +63,16 @@ public class AimForm {
         this.priority = priority;
     }
 
-    public Set<StepForm> getStepForms() {
+    public List<StepForm> getStepForms() {
         return stepForms;
     }
 
-    public void setStepForms(Set<StepForm> stepForms) {
+    public void setStepForms(List<StepForm> stepForms) {
         this.stepForms = stepForms;
     }
 
     public Aim createAim() {
-        Set<Step> steps = new HashSet<>();
+        List<Step> steps = new ArrayList<>();
         for(StepForm stepForm : stepForms)
             steps.add(stepForm.createStep());
         return new Aim(aimId, name, description, steps, priority);

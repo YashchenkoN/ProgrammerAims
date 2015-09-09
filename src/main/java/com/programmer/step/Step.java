@@ -31,10 +31,14 @@ public class Step {
 
     public Step() {}
 
-    public Step(Long id, Difficult difficult, String specification) {
-        this.id = id;
+    public Step(Difficult difficult, String specification) {
         this.difficult = difficult;
         this.specification = specification;
+    }
+
+    public Step(Long id, Difficult difficult, String specification) {
+        this(difficult, specification);
+        this.id = id;
     }
 
     public Long getId() {

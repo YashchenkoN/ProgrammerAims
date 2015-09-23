@@ -1,6 +1,7 @@
 package com.programmer.programmer;
 
 import com.programmer.aim.Aim;
+import com.programmer.blog.Blog;
 import com.programmer.media.FileEntity;
 import com.programmer.utils.KeyGenerationUtil;
 import org.hibernate.annotations.Fetch;
@@ -25,7 +26,7 @@ public class Programmer implements Serializable {
     @NotNull
     private Long id;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @NotEmpty
     private String email;
 
@@ -57,6 +58,9 @@ public class Programmer implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Aim> aims;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Blog> blogs;
 
     public Programmer() {
         registrationDate = Calendar.getInstance();
@@ -172,4 +176,13 @@ public class Programmer implements Serializable {
     public void removeAim(Aim aim) {
         aims.remove(aim);
     }
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
+    }
+
 }

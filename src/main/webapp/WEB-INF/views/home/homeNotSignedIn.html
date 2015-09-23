@@ -15,10 +15,7 @@
         <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
     <div class="text-center">
-        <h1>Бродяги.com</h1>
-        <p class="lead">
-            Шо ты бродяга, здаров
-        </p>
+        <h1>Aimer.com</h1>
         <p>
             <a href="/signup" th:href="@{/signup}" class="btn btn-success btn-lg">Зарегистрироватся</a>
         </p>

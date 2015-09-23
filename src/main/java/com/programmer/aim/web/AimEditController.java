@@ -58,14 +58,6 @@ public class AimEditController {
         Integer index = Integer.valueOf(request.getParameter("remove"));
         List<Aim> aims = programmer.getAims();
         if(!aims.isEmpty()) {
-            /*Iterator<Aim> iterator = aims.iterator();
-            while(iterator.hasNext()) {
-                Aim aim = iterator.next();
-                if(aim.getId().intValue() == index) {
-                    aims.remove(aim);
-                    aimService.delete(aim);
-                }
-            }*/
             Aim aimToRemove = aims.get(index);
             aims.remove(aimToRemove);
             aimService.delete(aimToRemove);
@@ -77,6 +69,7 @@ public class AimEditController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editByNumber(@PathVariable Long id, Model model, AimForm aimForm) {
         aimForm = aimFormBuilder.buildAimForm(id);
+        model.addAttribute("aimForm", aimForm);
         model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         return "programmer/aim-edit";
     }

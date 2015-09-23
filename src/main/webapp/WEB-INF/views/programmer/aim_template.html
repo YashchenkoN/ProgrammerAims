@@ -27,7 +27,8 @@
     <form class="form-narrow form-horizontal" action="#" th:action="@{/aim/edit}" method="post">
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading"><h3>Цель</h3></div>
+                <div class="panel-heading"
+                     th:href="'/aim/edit/' + ${aim.id}"><h3>Цель</h3></div>
                 <div class="panel-body">
                     <div class="aim_info">
                         <span th:text="'Название цели:' + ${aim.name}">Имя</span><br>

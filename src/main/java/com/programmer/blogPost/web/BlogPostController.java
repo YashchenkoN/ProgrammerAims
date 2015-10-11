@@ -16,7 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 /**
  * Created by kolyan on 9/23/15.
  */
-@Controller(value = "blog")
+@Controller
+@RequestMapping(value = "blog")
 public class BlogPostController {
 
     @Autowired

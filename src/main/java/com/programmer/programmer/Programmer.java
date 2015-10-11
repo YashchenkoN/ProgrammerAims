@@ -49,9 +49,8 @@ public class Programmer implements Serializable {
     @Column(name = "activation_key")
     private String activationKey;
 
-    @Column(name = "role")
-    @ManyToMany(fetch = FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
+    @JoinColumn(name = "role")
+    @ManyToOne(fetch = FetchType.EAGER)
     private ProgrammerRole role;
 
     @OneToOne

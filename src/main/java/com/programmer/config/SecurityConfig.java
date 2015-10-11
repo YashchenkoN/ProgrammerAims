@@ -3,9 +3,11 @@ package com.programmer.config;
 import com.programmer.programmer.service.ProgrammerDetailsService;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.programmer.service.ProgrammerServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,10 +32,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${mail.password}")
     private String mailPassword;
 
-    @Bean
-    public ProgrammerDetailsService programmerService() {
-        return new ProgrammerDetailsService();
-    }
+    @Autowired
+    private ProgrammerDetailsService programmerService;
 
     @Bean(name = "mailSender")
     public JavaMailSenderImpl javaMailSender() {
@@ -54,7 +54,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public TokenBasedRememberMeServices rememberMeServices() {
-        return new TokenBasedRememberMeServices("remember-me-key", programmerService());
+        return new TokenBasedRememberMeServices("remember-me-key", programmerService);
     }
 
     @Bean
@@ -66,7 +66,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             //.eraseCredentials(true)
-            .userDetailsService(programmerService())
+            .userDetailsService(programmerService)
             .passwordEncoder(passwordEncoder());
     }
 
@@ -76,7 +76,6 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/", "/favicon.ico", "/resources/**", "/signup", "/activate/**"
                         , "/programmer/**", "/files/**", "/test/**").permitAll()
-                //.antMatchers("/settings").access("hasRole('ROLE_USER')")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -96,5 +95,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .key("remember-me-key")
                 .and()
             .csrf().disable();
+    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }

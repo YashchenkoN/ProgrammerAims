@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.security.Principal;
@@ -28,6 +29,7 @@ import java.util.List;
 /**
  * Created by kolyan on 8/11/15.
  */
+@Service
 public class ProgrammerDetailsService implements UserDetailsService {
 
     @Autowired

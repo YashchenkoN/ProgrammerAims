@@ -51,8 +51,9 @@ public class SignupController {
 			MessageHelper.addErrorAttribute(model, "signup.error");
 			return SIGNUP_VIEW_NAME;
 		}
-		Programmer programmer = programmerService.add(signupForm.createProgrammer());
+		Programmer programmer = signupForm.createProgrammer();
 		programmer.setRole(programmerRoleService.read(Roles.ROLE_UNACTIVE));
+		programmerService.create(programmer);
 		programmerDetailsService.signin(programmer);
 		String activationLink = LinkGenerationUtil.getActivationLink(req, programmer.getActivationKey());
 		mailService.sendMail(programmer.getEmail(), "Activation", activationLink);

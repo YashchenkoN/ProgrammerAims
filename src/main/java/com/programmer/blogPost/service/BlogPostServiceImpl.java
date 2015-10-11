@@ -17,8 +17,9 @@ public class BlogPostServiceImpl implements BlogPostService {
 
     @Transactional
     @Override
-    public void create(BlogPost blogPost) {
+    public BlogPost create(BlogPost blogPost) {
         blogPostDao.create(blogPost);
+        return blogPost;
     }
 
     @Transactional(readOnly = true)

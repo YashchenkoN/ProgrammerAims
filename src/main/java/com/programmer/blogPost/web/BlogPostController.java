@@ -1,12 +1,9 @@
 package com.programmer.blogPost.web;
 
-import com.programmer.blog.Blog;
 import com.programmer.blogPost.BlogPost;
 import com.programmer.blogPost.BlogPostForm;
 import com.programmer.blogPost.BlogPostFormBuilder;
 import com.programmer.blogPost.service.BlogPostService;
-import com.programmer.programmer.Programmer;
-import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,9 +21,6 @@ public class BlogPostController {
 
     @Autowired
     private BlogPostService blogPostService;
-
-    @Autowired
-    private ProgrammerService programmerService;
 
     @Autowired
     private BlogPostFormBuilder blogPostFormBuilder;

@@ -11,7 +11,7 @@ public class BlogForm {
 
     private Long id;
 
-    private Long owner_id;
+    private Long ownerId;
 
     private String blogName;
 
@@ -25,12 +25,12 @@ public class BlogForm {
         this.id = id;
     }
 
-    public Long getOwner_id() {
-        return owner_id;
+    public Long getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwner_id(Long owner_id) {
-        this.owner_id = owner_id;
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getBlogName() {

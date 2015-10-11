@@ -26,10 +26,6 @@ public class BlogPost {
     @NotNull
     private String text;
 
-    @OneToOne
-    @JoinColumn(name = "blog")
-    private Blog blog;
-
     public Long getId() {
         return id;
     }
@@ -52,14 +48,6 @@ public class BlogPost {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public Blog getBlog() {
-        return blog;
-    }
-
-    public void setBlog(Blog blog) {
-        this.blog = blog;
     }
 
 }

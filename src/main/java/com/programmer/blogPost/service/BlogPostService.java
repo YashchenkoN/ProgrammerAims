@@ -7,7 +7,7 @@ import com.programmer.blogPost.BlogPost;
  */
 public interface BlogPostService {
 
-    void create(BlogPost blogPost);
+    BlogPost create(BlogPost blogPost);
 
     BlogPost read(Long id);
 

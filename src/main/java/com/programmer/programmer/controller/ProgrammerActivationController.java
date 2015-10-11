@@ -1,6 +1,9 @@
 package com.programmer.programmer.controller;
 
 import com.programmer.programmer.Programmer;
+import com.programmer.programmer.roles.ProgrammerRole;
+import com.programmer.programmer.roles.ProgrammerRoleService;
+import com.programmer.programmer.roles.Roles;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +24,15 @@ public class ProgrammerActivationController {
     @Autowired
     private ProgrammerService programmerService;
 
+    @Autowired
+    private ProgrammerRoleService programmerRoleService;
+
     @RequestMapping(value = "/{activationKey}", method = RequestMethod.GET)
     public String activate(@PathVariable String activationKey, RedirectAttributes ra) {
         Programmer programmer = programmerService.findByActivationKey(activationKey);
-        if(programmer != null && programmer.getRole().equals("ROLE_UNACTIVE")) {
+        if(programmer != null && programmer.getRole().equals(new ProgrammerRole())) {
             if(programmer.getActivationKey().equals(activationKey)) {
-                programmer.setRole("ROLE_USER");
+                programmer.setRole(programmerRoleService.read(Roles.ROLE_ACTIVE));
                 programmer = programmerService.update(programmer);
                 MessageHelper.addSuccessAttribute(ra, "activation.success");
                 return "redirect:/";

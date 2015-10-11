@@ -3,6 +3,7 @@ package com.programmer.programmer;
 import com.programmer.aim.Aim;
 import com.programmer.blog.Blog;
 import com.programmer.media.FileEntity;
+import com.programmer.programmer.roles.ProgrammerRole;
 import com.programmer.utils.KeyGenerationUtil;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -49,7 +50,9 @@ public class Programmer implements Serializable {
     private String activationKey;
 
     @Column(name = "role")
-    private String role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private ProgrammerRole role;
 
     @OneToOne
     @JoinColumn(name = "avatar_id")
@@ -59,7 +62,7 @@ public class Programmer implements Serializable {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Aim> aims;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Blog> blogs;
 
     public Programmer() {
@@ -79,7 +82,7 @@ public class Programmer implements Serializable {
         }
     }
 
-    public Programmer(String email, String name, String password, String role) {
+    public Programmer(String email, String name, String password, ProgrammerRole role) {
         this();
         this.email = email;
         this.name = name;
@@ -143,11 +146,11 @@ public class Programmer implements Serializable {
         this.activationKey = activationKey;
     }
 
-    public String getRole() {
+    public ProgrammerRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(ProgrammerRole role) {
         this.role = role;
     }
 

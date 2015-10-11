@@ -3,9 +3,17 @@ package com.programmer.blog.service;
 import com.programmer.blog.Blog;
 import com.programmer.blog.dao.BlogDao;
 import com.programmer.programmer.Programmer;
+import com.programmer.programmer.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.security.Principal;
+import java.util.Optional;
 
 
 /**
@@ -17,10 +25,14 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogDao blogDao;
 
+    @Autowired
+    private ProgrammerService programmerService;
+
     @Transactional
     @Override
-    public void create(Blog blog) {
+    public Blog create(Blog blog) {
         blogDao.create(blog);
+        return blog;
     }
 
     @Transactional(readOnly = true)
@@ -41,10 +53,23 @@ public class BlogServiceImpl implements BlogService {
         blogDao.delete(blog);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Blog getByProgrammer(Programmer programmer) {
         return blogDao.getByProgrammer(programmer);
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public Blog getLoggedProgrammerBlog() {
+        Object principal = Optional.of(SecurityContextHolder.getContext())
+                .map(SecurityContext::getAuthentication)
+                .map(Authentication::getPrincipal)
+                .orElse(null);
+        if(principal != null && principal instanceof User) {
+            Programmer programmer = programmerService.findByEmail(((User) principal).getUsername());
+            return getByProgrammer(programmer);
+        }
+        return null;
+    }
 }

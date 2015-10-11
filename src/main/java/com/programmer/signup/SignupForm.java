@@ -1,6 +1,7 @@
 package com.programmer.signup;
 
 import com.programmer.programmer.Programmer;
+import com.programmer.programmer.roles.ProgrammerRole;
 import org.hibernate.validator.constraints.*;
 
 public class SignupForm {
@@ -44,6 +45,6 @@ public class SignupForm {
 	}
 
 	public Programmer createProgrammer() {
-		return new Programmer(getEmail(), getName(), getPassword(), "ROLE_UNACTIVE");
+		return new Programmer(getEmail(), getName(), getPassword(), new ProgrammerRole());
 	}
 }

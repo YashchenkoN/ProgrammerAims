@@ -8,7 +8,7 @@ import com.programmer.programmer.Programmer;
  */
 public interface BlogService {
 
-    void create(Blog blog);
+    Blog create(Blog blog);
 
     Blog read(Long id);
 
@@ -17,5 +17,7 @@ public interface BlogService {
     void remove(Blog blog);
 
     Blog getByProgrammer(Programmer programmer);
+
+    Blog getLoggedProgrammerBlog();
 
 }

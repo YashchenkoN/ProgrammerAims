@@ -4,9 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.programmer.programmer.Programmer;
+import com.programmer.programmer.roles.ProgrammerRoleService;
+import com.programmer.programmer.roles.Roles;
 import com.programmer.programmer.service.ProgrammerDetailsService;
 import com.programmer.programmer.service.ProgrammerService;
-import com.programmer.programmer.service.ProgrammerServiceImpl;
 import com.programmer.mail.MailService;
 import com.programmer.utils.LinkGenerationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,9 @@ public class SignupController {
 	@Autowired
 	private MailService mailService;
 
+	@Autowired
+	private ProgrammerRoleService programmerRoleService;
+
 	@RequestMapping(value = "signup")
 	public String signup(Model model) {
 		model.addAttribute(new SignupForm());
@@ -48,6 +52,7 @@ public class SignupController {
 			return SIGNUP_VIEW_NAME;
 		}
 		Programmer programmer = programmerService.add(signupForm.createProgrammer());
+		programmer.setRole(programmerRoleService.read(Roles.ROLE_UNACTIVE));
 		programmerDetailsService.signin(programmer);
 		String activationLink = LinkGenerationUtil.getActivationLink(req, programmer.getActivationKey());
 		mailService.sendMail(programmer.getEmail(), "Activation", activationLink);

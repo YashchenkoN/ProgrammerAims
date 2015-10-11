@@ -1,35 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bc8cb62-c04d-4483-a499-ed52f81e5f2d" name="Default" comment="blogs add">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogFormBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRole.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRoleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/Roles.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/blog/blog-post-add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/blog/blog-post.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/blog/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Aimer.iml" afterPath="$PROJECT_DIR$/Aimer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blog/Blog.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/Blog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blog/web/BlogController.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/web/BlogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java" />
+    <list default="true" id="5bc8cb62-c04d-4483-a499-ed52f81e5f2d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/config/AsyncConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPost.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPost.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/web/BlogPostController.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/web/BlogPostController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostFormBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostFormBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostService.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blog/service/BlogService.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/service/BlogService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/blog/service/BlogServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/blog/service/BlogServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/Programmer.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/Programmer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/controller/ProgrammerActivationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/controller/ProgrammerActivationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/mail/MailService.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/mail/MailService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/service/ProgrammerDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/programmer/service/ProgrammerDetailsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/config/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/config/SecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupForm.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/aimer/account/UserServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/aimer/account/UserServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupController.java" afterPath="$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Aimer.iws" />
@@ -59,101 +36,7 @@
     <favorites_list name="Aimer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="BlogPostServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogPostController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/web/BlogPostController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/web/BlogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#457#458#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogPostFormBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostFormBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgrammerActivationController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/controller/ProgrammerActivationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5388349">
-              <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgrammerRoleService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRoleService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#361#362#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgrammerRole.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRole.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -180,9 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/programmer/step/StepFormBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programmer/step/StepForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programmer/step/StepFormBuiderImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/step/Step.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/aim/Aim.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/aim/AimForm.java" />
@@ -211,18 +91,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/web/BlogPostController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/blog/blog.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/Blog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogFormBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/programmer/Programmer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/Roles.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programmer/programmer/service/ProgrammerDetailsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/service/BlogService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/service/BlogServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPost.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/web/BlogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupForm.java" />
@@ -231,6 +108,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/programmer/programmer/controller/ProgrammerActivationController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/aimer/account/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programmer/programmer/service/ProgrammerDetailsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPost.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programmer/config/AsyncConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programmer/mail/MailService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupController.java" />
       </list>
     </option>
   </component>
@@ -870,71 +753,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="blogPost" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Aimer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Aimer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="programmer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Aimer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Aimer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="programmer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -959,7 +778,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="SearchEverywhereHistoryKey" value="Roles&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/roles/Roles.java&#10;ProgrammerDe&#9;PSI&#9;JAVA://com.programmer.programmer.service.ProgrammerDetailsService&#10;Sec&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/config/SecurityConfig.java&#10;Pro&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/Programmer.java&#10;Progra&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/controller/ProgrammerController.java&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="Signu&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/signup/SignupController.java&#10;Activ&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/controller/ProgrammerActivationController.java&#10;Mai&#9;PSI&#9;JAVA://com.programmer.mail.MailService&#10;Blog&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/blogPost/BlogPost.java&#10;Pr&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/Programmer.java&#10;Roles&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/roles/Roles.java&#10;ProgrammerDe&#9;PSI&#9;JAVA://com.programmer.programmer.service.ProgrammerDetailsService&#10;Sec&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/config/SecurityConfig.java&#10;Pro&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/Programmer.java&#10;Progra&#9;FILE&#9;file:///home/kolyan/MyProject/Aimer/src/main/java/com/programmer/programmer/controller/ProgrammerController.java&#10;Maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -1360,7 +1179,7 @@
       <workItem from="1443029654462" duration="9571000" />
       <workItem from="1443296536468" duration="28000" />
       <workItem from="1444487488769" duration="7383000" />
-      <workItem from="1444546687512" duration="4422000" />
+      <workItem from="1444546687512" duration="7093000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring">
       <created>1439290595600</created>
@@ -1506,11 +1325,17 @@
       <option name="project" value="LOCAL" />
       <updated>1443040627547</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="blogs add&#10;roles fix">
+      <created>1444551469059</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1444551469059</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204255000" />
+    <option name="totallyTimeSpent" value="206926000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1523,7 +1348,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1538,7 +1363,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2987897" sideWeight="0.4937888" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2987897" sideWeight="0.4937888" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1619,7 +1444,8 @@
     <MESSAGE value="some fixes" />
     <MESSAGE value="add blogs (only services and dao)" />
     <MESSAGE value="blogs add" />
-    <option name="LAST_COMMIT_MESSAGE" value="blogs add" />
+    <MESSAGE value="blogs add&#10;roles fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="blogs add&#10;roles fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1642,34 +1468,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/aim/web/AimEditController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/fragments/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2020202">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/aim/web/AimAddController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/step/Step.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.11029412">
@@ -1825,22 +1623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/Programmer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6796116">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19417475">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/io/Serializable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80582523">
@@ -1865,26 +1647,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.684466">
-          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.2.5.RELEASE/spring-security-core-3.2.5.RELEASE.jar!/org/springframework/security/core/authority/AuthorityUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56155145">
           <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/service/ProgrammerDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38064516">
-          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1895,17 +1661,6 @@
           <folding>
             <element signature="e#830#831#0" expanded="true" />
             <element signature="e#871#872#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1937,24 +1692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/web/BlogPostController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62903225">
@@ -1965,68 +1702,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7822581">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8951613">
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6691176">
-          <caret line="47" column="87" selection-start-line="47" selection-start-column="87" selection-end-line="47" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/web/BlogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostFormBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRoleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2047,10 +1728,172 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPostFormBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5825243">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/Programmer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1699029">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/BlogForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39644012">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blog/web/BlogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5097088">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/service/ProgrammerDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1262136">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3883495">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19417475">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/BlogPost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1003#1004#0" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.4.RELEASE/spring-aop-4.1.4.RELEASE.jar!/org/springframework/aop/interceptor/AsyncUncaughtExceptionHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.1.4.RELEASE/spring-aop-4.1.4.RELEASE.jar!/org/springframework/aop/interceptor/SimpleAsyncUncaughtExceptionHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/config/AsyncConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/roles/ProgrammerRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32038835">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/programmer/controller/ProgrammerActivationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5388349">
           <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/signup/SignupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7330097">
+          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/web/BlogPostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/blogPost/service/BlogPostServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4854369">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/programmer/mail/MailService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3398058">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding />
         </state>
       </provider>

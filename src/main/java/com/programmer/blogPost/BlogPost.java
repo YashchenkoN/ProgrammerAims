@@ -26,6 +26,11 @@ public class BlogPost {
     @NotNull
     private String text;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "blog")
+    @NotNull
+    private Blog blog;
+
     public Long getId() {
         return id;
     }
@@ -50,4 +55,11 @@ public class BlogPost {
         this.text = text;
     }
 
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
 }

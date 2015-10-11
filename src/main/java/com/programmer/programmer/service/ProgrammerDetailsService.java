@@ -33,25 +33,6 @@ public class ProgrammerDetailsService implements UserDetailsService {
     @Autowired
     private ProgrammerService programmerService;
 
-    @Autowired
-    private AimService aimService;
-
-    @Autowired
-    private StepService stepService;
-
-    @PostConstruct
-    protected void initialize() {
-        Programmer programmer = new Programmer("admin", "admin", "admin", new ProgrammerRole());
-        programmerService.add(programmer);
-        Aim aim = new Aim("Name", "New description", 1L);
-        Step step = new Step(Difficult.EASY, "SPEC");
-        stepService.add(step);
-        aim.addStep(step);
-        programmer.addAim(aim);
-        aimService.update(aim);
-
-    }
-
     @SuppressWarnings("unchecked")
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

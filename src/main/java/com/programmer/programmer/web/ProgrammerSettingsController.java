@@ -2,9 +2,11 @@ package com.programmer.programmer.web;
 
 import com.programmer.programmer.Programmer;
 import com.programmer.programmer.ProgrammerForm;
+import com.programmer.programmer.ProgrammerFormBuilder;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,12 +32,19 @@ public class ProgrammerSettingsController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private ProgrammerFormBuilder programmerFormBuilder;
+
+    @PreAuthorize("hasAnyRole('ROLE_ACTIVE', 'ROLE_UNACTIVE')")
     @RequestMapping(value = {"/settings", "/settings/"}, method = RequestMethod.GET)
     public String settings(Model model) {
-        model.addAttribute(new ProgrammerForm());
+        Programmer programmer = programmerService.getLoggedProgrammer();
+        ProgrammerForm programmerForm = programmerFormBuilder.build(programmer);
+        model.addAttribute(programmer);
         return "programmer/settings";
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ACTIVE', 'ROLE_UNACTIVE')")
     @RequestMapping(value = {"/settings", "/settings"}, method = RequestMethod.POST)
     public String settings(@Valid @ModelAttribute ProgrammerForm programmerForm, Errors errors, Principal principal
             , RedirectAttributes ra) {

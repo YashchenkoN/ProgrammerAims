@@ -1,4 +1,4 @@
-package com.programmer.programmer.controller;
+package com.programmer.programmer.web;
 
 import com.programmer.aim.Aim;
 import com.programmer.aim.service.AimService;
@@ -6,10 +6,8 @@ import com.programmer.programmer.Programmer;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 

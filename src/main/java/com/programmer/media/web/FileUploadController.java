@@ -33,7 +33,7 @@ public class FileUploadController {
     private FileUploadService fileUploadService;
 
     /***************************************************
-     * URL: /rest/controller/upload
+     * URL: /rest/web/upload
      * upload(): receives files
      * @param request : MultipartHttpServletRequest auto passed
      * @return FileUploadResponse as json format

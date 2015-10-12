@@ -1,11 +1,10 @@
-package com.programmer.programmer.controller;
+package com.programmer.programmer.web;
 
 import com.programmer.programmer.Programmer;
 import com.programmer.programmer.ProgrammerForm;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

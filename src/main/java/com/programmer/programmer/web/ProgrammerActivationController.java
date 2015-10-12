@@ -1,4 +1,4 @@
-package com.programmer.programmer.controller;
+package com.programmer.programmer.web;
 
 import com.programmer.programmer.Programmer;
 import com.programmer.programmer.roles.ProgrammerRole;

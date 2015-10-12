@@ -54,6 +54,11 @@ public class ProgrammerDetailsService implements UserDetailsService {
         }
     }
 
+    public boolean hasRole(String role) {
+        Programmer programmer = programmerService.getLoggedProgrammer();
+        return programmer != null && programmer.getRole() != null && programmer.getRole().toString().equals(role);
+    }
+
     private User createUser(Programmer programmer, List<GrantedAuthority> authorities) {
         return new User(programmer.getEmail(), programmer.getPassword(), authorities);
     }

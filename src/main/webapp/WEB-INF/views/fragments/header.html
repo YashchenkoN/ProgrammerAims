@@ -34,7 +34,11 @@
                 </li>
             </ul>
         </div>
-        <!--/.nav-collapse -->
+        <th:block th:if="${@programmerDetailsService.hasRole('ROLE_UNACTIVE')}">
+            <div th:fragment="alert (type, message)" class="alert alert-dismissable" th:classappend="'alert-danger'">
+                <span th:text="'You must activate your email'">Test</span>
+            </div>
+        </th:block>
     </div>
 </div>
 

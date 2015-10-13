@@ -1,7 +1,7 @@
 package com.programmer.programmer.web;
 
 import com.programmer.programmer.Programmer;
-import com.programmer.programmer.ProgrammerForm;
+import com.programmer.programmer.ProgrammerSignupForm;
 import com.programmer.programmer.ProgrammerFormBuilder;
 import com.programmer.programmer.service.ProgrammerService;
 import com.programmer.support.web.MessageHelper;
@@ -39,14 +39,14 @@ public class ProgrammerSettingsController {
     @RequestMapping(value = {"/settings", "/settings/"}, method = RequestMethod.GET)
     public String settings(Model model) {
         Programmer programmer = programmerService.getLoggedProgrammer();
-        ProgrammerForm programmerForm = programmerFormBuilder.build(programmer);
+        ProgrammerSignupForm programmerForm = programmerFormBuilder.build(programmer);
         model.addAttribute(programmer);
         return "programmer/settings";
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ACTIVE', 'ROLE_UNACTIVE')")
     @RequestMapping(value = {"/settings", "/settings"}, method = RequestMethod.POST)
-    public String settings(@Valid @ModelAttribute ProgrammerForm programmerForm, Errors errors, Principal principal
+    public String settings(@Valid @ModelAttribute ProgrammerSignupForm programmerForm, Errors errors, Principal principal
             , RedirectAttributes ra) {
         if(errors.hasErrors()) {
             MessageHelper.addErrorAttribute(ra, "programmer.settings.error");

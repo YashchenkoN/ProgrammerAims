@@ -44,9 +44,9 @@ public class ProgrammerEndpoint {
             programmer.setRole(programmerRoleService.read(Roles.ROLE_UNACTIVE));
             programmerCreateResponse.setId(programmer.getId());
         } else if(!exists) {
-            throw new ApiException(100, programmerCreateResponse);
+            throw new ApiException(ApiError.WRONG_FIELD, programmerCreateResponse);
         } else {
-            throw new ApiException(100, programmerCreateResponse);
+            throw new ApiException(ApiError.USER_ALREADY_EXISTS, programmerCreateResponse);
         }
         programmerCreateResponse.setCreated(true);
         return programmerCreateResponse;
@@ -55,7 +55,7 @@ public class ProgrammerEndpoint {
     @ResponseBody
     @RequestMapping(value = "/read/{id}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProgrammerForm read(@RequestParam("id") String id) throws ApiException {
+    public ProgrammerForm read(@PathVariable("id") String id) throws ApiException {
         Long longId;
         try {
             longId = Long.parseLong(id);
@@ -64,7 +64,7 @@ public class ProgrammerEndpoint {
         }
         ProgrammerForm programmer = programmerFormBuilder.build(longId);
         if(programmer == null) {
-            throw new ApiException(100, programmer);
+            throw new ApiException(ApiError.PROGRAMMER_NOT_FOUND, new ProgrammerForm());
         }
         return programmer;
     }

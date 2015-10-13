@@ -10,13 +10,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BaseApiResponse {
-    public Integer error;
+    private Integer errorCode;
+    private String errorValue;
 
-    public Integer getError() {
-        return error;
+    public Integer getErrorCode() {
+        return errorCode;
     }
 
-    public void setError(Integer error) {
-        this.error = error;
+    public void setErrorCode(Integer errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getErrorValue() {
+        return errorValue;
+    }
+
+    public void setErrorValue(String errorValue) {
+        this.errorValue = errorValue;
     }
 }

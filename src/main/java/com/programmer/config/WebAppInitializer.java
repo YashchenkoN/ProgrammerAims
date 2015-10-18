@@ -1,11 +1,13 @@
 package com.programmer.config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.*;
 
+@Configuration("webAppInitializer")
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
@@ -15,7 +17,8 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] {ApplicationConfig.class, JpaConfig.class, SecurityConfig.class, AsyncConfig.class};
+        return new Class<?>[] {ApplicationConfig.class, JpaConfig.class, SecurityConfig.class, AsyncConfig.class,
+                MailConfig.class};
     }
 
     @Override

@@ -10,16 +10,20 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 
 import com.programmer.Application;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
-@ComponentScan(basePackageClasses = Application.class, excludeFilters = @Filter({Controller.class, Configuration.class}))
+@ComponentScan(basePackageClasses = Application.class, excludeFilters = @Filter({Controller.class,
+		Configuration.class, ControllerAdvice.class, RestController.class}))
 class ApplicationConfig {
 	
 	@Bean
 	public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
 		PropertyPlaceholderConfigurer ppc = new PropertyPlaceholderConfigurer();
-		ppc.setLocation(new ClassPathResource("/settings.properties"));
+		ppc.setIgnoreUnresolvablePlaceholders(true);
+		ppc.setLocation(new ClassPathResource("settings.properties"));
 		return ppc;
 	}
 

@@ -22,35 +22,11 @@ import java.util.Properties;
 
 @Configuration
 @EnableWebMvcSecurity
-@PropertySource("classpath:settings.properties")
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${mail.username}")
-    private String mailUsername;
-
-    @Value("${mail.password}")
-    private String mailPassword;
-
     @Autowired
     private ProgrammerDetailsService programmerService;
-
-    @Bean(name = "mailSender")
-    public JavaMailSenderImpl javaMailSender() {
-        JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
-        javaMailSender.setHost("smtp.gmail.com");
-        System.out.println(mailUsername);
-        System.out.println(mailPassword);
-        javaMailSender.setUsername(mailUsername);
-        javaMailSender.setPassword(mailPassword);
-        Properties properties = new Properties();
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.debug", "true");
-        javaMailSender.setJavaMailProperties(properties);
-        return javaMailSender;
-    }
 
     @Bean
     public TokenBasedRememberMeServices rememberMeServices() {

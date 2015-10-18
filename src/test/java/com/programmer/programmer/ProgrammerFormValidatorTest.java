@@ -15,10 +15,27 @@ public class ProgrammerFormValidatorTest extends WebAppConfigurationAware {
     private ProgrammerFormValidator programmerFormValidator;
 
     @Test
-    public void test() throws Exception {
+    public void testValidData() throws Exception {
         ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
         programmerSignupForm.setEmail("email@email.com");
         programmerSignupForm.setName("Name Name");
         Assert.assertTrue("It passed test", programmerFormValidator.validate(programmerSignupForm));
     }
+
+    @Test
+    public void testNotValidEmail() throws Exception {
+        ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
+        programmerSignupForm.setEmail("email");
+        programmerSignupForm.setName("Name Name");
+        Assert.assertFalse("Not valid email", programmerFormValidator.validate(programmerSignupForm));
+    }
+
+    @Test
+    public void testNotValidName() throws Exception {
+        ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
+        programmerSignupForm.setEmail("email@email.com");
+        programmerSignupForm.setName(null);
+        Assert.assertFalse("Not valid name", programmerFormValidator.validate(programmerSignupForm));
+    }
+
 }

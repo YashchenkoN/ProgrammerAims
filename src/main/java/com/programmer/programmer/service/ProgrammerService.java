@@ -20,18 +20,18 @@ import java.util.List;
  */
 public interface ProgrammerService {
 
-    public Programmer findByEmail(String email);
+    Programmer findByEmail(String email);
 
-    public Programmer findByActivationKey(String activationKey);
+    Programmer findByActivationKey(String activationKey);
 
-    public Programmer findById(Long id);
+    Programmer findById(Long id);
 
-    public Programmer create(Programmer programmer);
+    Programmer create(Programmer programmer);
 
-    public Programmer update(Programmer programmer);
+    Programmer update(Programmer programmer);
 
-    public List<Programmer> getListOfProgrammers();
+    List<Programmer> getListOfProgrammers();
 
-    public Programmer getLoggedProgrammer();
+    Programmer getLoggedProgrammer();
 
 }

@@ -19,6 +19,6 @@ public class ProgrammerFormValidatorTest extends WebAppConfigurationAware {
         ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
         programmerSignupForm.setEmail("email@email.com");
         programmerSignupForm.setName("Name Name");
-        Assert.assertEquals(true, programmerFormValidator.validate(programmerSignupForm));
+        Assert.assertTrue("It passed test", programmerFormValidator.validate(programmerSignupForm));
     }
 }

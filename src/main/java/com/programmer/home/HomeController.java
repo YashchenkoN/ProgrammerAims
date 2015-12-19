@@ -26,6 +26,7 @@ public class HomeController {
 			model.addAttribute("programmer", programmer);
 			return "home/homeSignedIn";
 		}
-		return "home/homeNotSignedIn";
+//		return "home/homeNotSignedIn";
+		return "test1";
 	}
 }

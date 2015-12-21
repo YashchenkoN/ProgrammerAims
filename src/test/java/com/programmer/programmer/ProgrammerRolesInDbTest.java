@@ -1,9 +1,9 @@
 package com.programmer.programmer;
 
 import com.programmer.config.WebAppConfigurationAware;
-import com.programmer.programmer.roles.ProgrammerRole;
-import com.programmer.programmer.roles.ProgrammerRoleService;
-import com.programmer.programmer.roles.Roles;
+import com.programmer.entity.ProgrammerRole;
+import com.programmer.services.programmer.ProgrammerRoleService;
+import com.programmer.entity.Roles;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

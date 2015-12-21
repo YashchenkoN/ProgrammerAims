@@ -2,7 +2,7 @@ package com.programmer.blog.dao;
 
 import com.programmer.MainDao;
 import com.programmer.blog.Blog;
-import com.programmer.programmer.Programmer;
+import com.programmer.entity.Programmer;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

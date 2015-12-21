@@ -1,6 +1,6 @@
 package com.programmer.rest.beans;
 
-import com.programmer.aim.AimForm;
+import com.programmer.commons.AimForm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

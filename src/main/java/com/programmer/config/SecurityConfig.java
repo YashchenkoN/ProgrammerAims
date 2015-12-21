@@ -1,12 +1,8 @@
 package com.programmer.config;
 
-import com.programmer.programmer.service.ProgrammerDetailsService;
-import com.programmer.programmer.service.ProgrammerService;
-import com.programmer.programmer.service.ProgrammerServiceImpl;
+import com.programmer.services.programmer.ProgrammerDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -16,8 +12,6 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
-
-import java.util.Properties;
 
 
 @Configuration
@@ -64,7 +58,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
                 .logoutUrl("/logout")
                 .permitAll()
-                .logoutSuccessUrl("/signin?logout")
+                .logoutSuccessUrl("/")
                 .and()
             .rememberMe()
                 .rememberMeServices(rememberMeServices())

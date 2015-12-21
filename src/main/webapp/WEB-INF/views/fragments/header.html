@@ -4,43 +4,47 @@
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" th:href="@{/}">Aimer.com</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a th:href="@{/}">Домой</a></li>
-                <li><a href="#" th:href="@{/programmer/list}">Все пользователи</a> </li>
-                <li><a href="#about">О сайте</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li th:if="${#authorization.expression('!isAuthenticated()')}">
-                    <a href="/signin" th:href="@{/signin}">Войти</a>
-                </li>
-                <li th:if="${#authorization.expression('isAuthenticated()')}">
-                    <a href="/settings" th:href="@{/programmer/settings}">Настройки</a>
-                </li>
-                <li th:if="${#authorization.expression('isAuthenticated()')}">
-                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">Выйти</a>
-                    <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
-                </li>
-            </ul>
-        </div>
-        <th:block th:if="${@programmerDetailsService.hasRole('ROLE_UNACTIVE')}">
-            <div th:fragment="alert (type, message)" class="alert alert-dismissable" th:classappend="'alert-danger'">
-                <span th:text="'You must activate your email'">Test</span>
+<div th:fragment="header">
+    <script th:src="@{/resources/js/scripts.js}"></script>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/}">Aimer.com</a>
             </div>
-        </th:block>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a th:href="@{/programmer/my}">Моя страница</a></li>
+                    <li><a href="#" th:href="@{/programmer/list}">Все пользователи</a> </li>
+                    <li><a href="#about">О сайте</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li th:if="${#authorization.expression('!isAuthenticated()')}">
+                        <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Войти</a>
+                    </li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <a href="#settingsModal" data-toggle="modal" data-target="#settingsModal">Настройки</a>
+                    </li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">Выйти</a>
+                        <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <th:block th:if="${@programmerDetailsService.hasRole('ROLE_UNACTIVE')}">
+        <div th:fragment="alert (type, message)" class="alert alert-dismissable" th:classappend="'alert-danger'">
+            <h5 class="text-center">You must activate your email</h5>
+        </div>
+    </th:block>
+    <div th:replace="fragments/settings :: settings">Header</div>
+    <div th:replace="fragments/authModal :: auth">Header</div>
 </div>
-
 </body>
 </html>

@@ -1,8 +1,7 @@
 package com.programmer.blog.dao;
 
 import com.programmer.blog.Blog;
-import com.programmer.programmer.Programmer;
-import org.springframework.stereotype.Repository;
+import com.programmer.entity.Programmer;
 
 /**
  * Created by kolyan on 9/23/15.

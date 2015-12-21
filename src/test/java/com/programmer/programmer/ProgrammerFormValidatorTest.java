@@ -1,7 +1,8 @@
 package com.programmer.programmer;
 
+import com.programmer.commons.ProgrammerRequest;
 import com.programmer.config.WebAppConfigurationAware;
-import com.programmer.services.ProgrammerFormValidator;
+import com.programmer.services.programmer.ProgrammerFormValidator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class ProgrammerFormValidatorTest extends WebAppConfigurationAware {
 
     @Test
     public void testValidData() throws Exception {
-        ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
+        ProgrammerRequest programmerSignupForm = new ProgrammerRequest();
         programmerSignupForm.setEmail("email@email.com");
         programmerSignupForm.setName("Name Name");
         Assert.assertTrue("It passed test", programmerFormValidator.validate(programmerSignupForm));
@@ -24,7 +25,7 @@ public class ProgrammerFormValidatorTest extends WebAppConfigurationAware {
 
     @Test
     public void testNotValidEmail() throws Exception {
-        ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
+        ProgrammerRequest programmerSignupForm = new ProgrammerRequest();
         programmerSignupForm.setEmail("email");
         programmerSignupForm.setName("Name Name");
         Assert.assertFalse("Not valid email", programmerFormValidator.validate(programmerSignupForm));
@@ -32,7 +33,7 @@ public class ProgrammerFormValidatorTest extends WebAppConfigurationAware {
 
     @Test
     public void testNotValidName() throws Exception {
-        ProgrammerSignupForm programmerSignupForm = new ProgrammerSignupForm();
+        ProgrammerRequest programmerSignupForm = new ProgrammerRequest();
         programmerSignupForm.setEmail("email@email.com");
         programmerSignupForm.setName(null);
         Assert.assertFalse("Not valid name", programmerFormValidator.validate(programmerSignupForm));

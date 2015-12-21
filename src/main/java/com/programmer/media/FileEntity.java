@@ -1,6 +1,6 @@
 package com.programmer.media;
 
-import com.programmer.programmer.Programmer;
+import com.programmer.entity.Programmer;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

@@ -2,7 +2,7 @@ package com.programmer.media.service;
 
 import com.programmer.media.FileEntity;
 import com.programmer.media.dao.FileEntityDao;
-import com.programmer.programmer.Programmer;
+import com.programmer.entity.Programmer;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

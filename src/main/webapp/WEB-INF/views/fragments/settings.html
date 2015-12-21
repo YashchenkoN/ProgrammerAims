@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true" th:fragment="settings">
+    <div class="modal-dialog">
+        <div class="modal-content login-modal">
+            <div class="modal-header login-modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="settingModalLabel">Settings</h4>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active text-center" id="home">
+                        &nbsp;&nbsp;
+                        <span id="settings_saved" class="response_error" style="display: none;">Settings saved</span>
+                        <div class="clearfix"></div>
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                    <input type="text" class="form-control" id="setting-name" placeholder="Name" autocomplete="off">
+                                </div>
+                                <span class="help-block has-error" id="setting-name-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                    <input type="text" class="form-control" id="setting-email" placeholder="Email" autocomplete="off">
+                                </div>
+                                <span class="help-block has-error" id="setting-email-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                                    <input type="password" class="form-control" id="setting-password" placeholder="Password" autocomplete="off">
+                                </div>
+                                <span class="help-block has-error" id="password-error"></span>
+                            </div>
+                            <button type="button" id="save_setting_btn" class="btn btn-block bt-login" data-loading-text="Saving....">Save</button>
+                            <div class="clearfix"></div>
+
+                        </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>

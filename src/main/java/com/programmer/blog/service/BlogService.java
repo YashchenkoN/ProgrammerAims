@@ -1,7 +1,7 @@
 package com.programmer.blog.service;
 
 import com.programmer.blog.Blog;
-import com.programmer.programmer.Programmer;
+import com.programmer.entity.Programmer;
 
 /**
  * Created by kolyan on 9/23/15.

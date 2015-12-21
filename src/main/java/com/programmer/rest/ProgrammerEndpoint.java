@@ -1,12 +1,11 @@
 package com.programmer.rest;
 
-import com.programmer.programmer.*;
-import com.programmer.programmer.roles.ProgrammerRoleService;
-import com.programmer.programmer.roles.Roles;
-import com.programmer.programmer.service.ProgrammerService;
+import com.programmer.commons.ProgrammerRequest;
+import com.programmer.commons.ProgrammerForm;
+import com.programmer.entity.Programmer;
+import com.programmer.services.programmer.*;
+import com.programmer.entity.Roles;
 import com.programmer.rest.beans.ProgrammerCreateResponse;
-import com.programmer.rest.beans.ReadProgrammerRequest;
-import com.programmer.services.ProgrammerFormValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +35,7 @@ public class ProgrammerEndpoint {
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProgrammerCreateResponse create(@RequestBody ProgrammerSignupForm programmerForm) throws ApiException {
+    public ProgrammerCreateResponse create(@RequestBody ProgrammerRequest programmerForm) throws ApiException {
         ProgrammerCreateResponse programmerCreateResponse = new ProgrammerCreateResponse();
         boolean exists = programmerService.findByEmail(programmerForm.getEmail()) != null;
         if(programmerFormValidator.validate(programmerForm) && !exists) {

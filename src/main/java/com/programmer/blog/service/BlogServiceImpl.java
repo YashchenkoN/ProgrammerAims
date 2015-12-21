@@ -2,8 +2,8 @@ package com.programmer.blog.service;
 
 import com.programmer.blog.Blog;
 import com.programmer.blog.dao.BlogDao;
-import com.programmer.programmer.Programmer;
-import com.programmer.programmer.service.ProgrammerService;
+import com.programmer.entity.Programmer;
+import com.programmer.services.programmer.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.security.Principal;
 import java.util.Optional;
 
 

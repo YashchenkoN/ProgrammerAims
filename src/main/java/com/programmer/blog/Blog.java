@@ -1,7 +1,7 @@
 package com.programmer.blog;
 
 import com.programmer.blogPost.BlogPost;
-import com.programmer.programmer.Programmer;
+import com.programmer.entity.Programmer;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 

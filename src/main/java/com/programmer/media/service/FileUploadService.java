@@ -1,9 +1,8 @@
 package com.programmer.media.service;
 
 import com.programmer.media.FileEntity;
-import com.programmer.programmer.Programmer;
+import com.programmer.entity.Programmer;
 
-import java.io.File;
 import java.util.List;
 
 /**

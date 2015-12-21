@@ -7,19 +7,16 @@ import com.programmer.entity.Step;
  * Created by kolyan on 8/24/15.
  */
 public class StepForm {
-
-    private Long stepId;
-
+    private Long id;
     private Difficult difficult;
-
     private String specification;
 
-    public Long getStepId() {
-        return stepId;
+    public Long getId() {
+        return id;
     }
 
-    public void setStepId(Long stepId) {
-        this.stepId = stepId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Difficult getDifficult() {
@@ -39,7 +36,7 @@ public class StepForm {
     }
 
     public Step createStep() {
-        return new Step(stepId, difficult, specification);
+        return new Step(id, difficult, specification);
     }
 
 }

@@ -10,16 +10,16 @@ import java.util.List;
  */
 public interface AimService {
 
-    public Aim findByName(String name);
+    Aim findByName(String name);
 
-    public Aim findById(Long id);
+    Aim findById(Long id);
 
-    public void add(Aim aim);
+    void add(Aim aim);
 
-    public Aim update(Aim aim);
+    Aim update(Aim aim);
 
-    public List<Aim> getListOfProgrammerAims(Programmer programmer);
+    List<Aim> getListOfProgrammerAims(Programmer programmer);
 
-    public void delete(Aim aim);
+    void delete(Aim aim);
 
 }

@@ -9,6 +9,7 @@ import com.programmer.services.aim.AimFormBuilder;
 import com.programmer.blog.Blog;
 import com.programmer.blog.BlogForm;
 import com.programmer.blog.BlogFormBuilder;
+import com.programmer.services.aim.AimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,9 @@ public class ProgrammerFormBuilder {
     @Autowired
     private BlogFormBuilder blogFormBuilder;
 
+    @Autowired
+    private AimService aimService;
+
     public ProgrammerRequest build(Programmer programmer) {
         ProgrammerRequest programmerForm = new ProgrammerRequest();
         programmerForm.setEmail(programmer.getEmail());
@@ -46,11 +50,12 @@ public class ProgrammerFormBuilder {
         if(programmer != null) {
             programmerForm = new ProgrammerForm();
             programmerForm.setId(programmer.getId());
+            programmerForm.setRole(programmer.getRole().toString());
             programmerForm.setEmail(programmer.getEmail());
             programmerForm.setName(programmer.getName());
             programmerForm.setLastVisitDate(programmer.getLastVisit().toString());
             programmerForm.setRegistrationDate(programmer.getRegistrationDate().toString());
-            List<AimForm> aimForms = programmer.getAims().stream()
+            List<AimForm> aimForms = aimService.getListOfProgrammerAims(programmer).stream()
                     .filter(Objects::nonNull)
                     .map(Aim::getId)
                     .map(aimFormBuilder::buildAimForm)

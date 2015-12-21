@@ -23,29 +23,28 @@
     </div>
 </div>
 
-<div th:fragment="aim-edit-template(aim, index)">
-    <form class="form-narrow form-horizontal" action="#" th:action="@{/aim/edit}" method="post">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading"
-                     th:href="'/aim/edit/' + ${aim.id}"><h3>Цель</h3></div>
-                <div class="panel-body">
-                    <div class="aim_info">
-                        <span th:text="'Название цели:' + ${aim.name}">Имя</span><br>
-                        <span th:text="'Описание: ' + ${aim.description}">Инфо</span>
-                        <ul>
-                            <li class="steps_li" th:each="step, rowStat : ${aim.steps}">
-                                <div class="step_info">
-                                    <h4 th:text="'Шаг ' + ${rowStat.count}"></h4>
-                                    <span th:text="'Сложность: ' + ${step.difficult}">Сложность</span><br>
-                                    <span th:text="'Инфо: ' + ${step.specification}">Инфо</span><br>
-                                </div>
-                            </li>
-                        </ul>
-                        <button type="submit" name="remove" class="btn btn-default" th:value="${index}">Удалить цель</button>
-                    </div>
+<div th:id="${'aim' + aim.id}" th:fragment="aim-edit-template(aim, index)">
+    <div class="col-md-4">
+        <input id="aim_id" type="hidden" th:value="${aim.id}">
+        <div class="panel panel-default">
+            <div class="panel-heading"
+                 th:href="'/aim/edit/' + ${aim.id}"><h3>Цель</h3></div>
+            <div class="panel-body">
+                <div class="aim_info">
+                    <span th:text="'Название цели:' + ${aim.name}">Имя</span><br>
+                    <span th:text="'Описание: ' + ${aim.description}">Инфо</span>
+                    <ul>
+                        <li class="steps_li" th:each="step, rowStat : ${aim.steps}">
+                            <div class="step_info">
+                                <h4 th:text="'Шаг ' + ${rowStat.count}"></h4>
+                                <span th:text="'Сложность: ' + ${step.difficult}">Сложность</span><br>
+                                <span th:text="'Инфо: ' + ${step.specification}">Инфо</span><br>
+                            </div>
+                        </li>
+                    </ul>
+                    <button id="delete_aim" class="btn btn-default">Удалить цель</button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>

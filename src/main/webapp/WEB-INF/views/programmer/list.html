@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title th:text="#{view.index.title}">Все бродяги</title>
+    <title th:text="#{view.index.title}">Пользователи</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
     <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
@@ -20,7 +20,7 @@
         <table>
             <tr th:each="programmer : ${list}">
                 <td th:text="${programmer.id}"/>
-                <td th:text="${programmer.name}"/>
+                <td><a th:href="'/programmer/' + ${programmer.id}" th:text="${programmer.name}"/></td>
                 <td th:text="${#calendars.format(programmer.lastVisit, 'dd/MMM/yyyy HH:mm')}"/>
                 <td th:text="${programmer.role}"/>
             </tr>

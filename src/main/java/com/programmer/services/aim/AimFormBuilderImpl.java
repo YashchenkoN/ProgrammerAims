@@ -27,7 +27,7 @@ public class AimFormBuilderImpl implements AimFormBuilder {
     public AimForm buildAimForm(Long id) {
         AimForm aimForm = new AimForm();
         Aim aim = aimService.findById(id);
-        aimForm.setAimId(id);
+        aimForm.setId(id);
         aimForm.setName(aim.getName());
         aimForm.setDescription(aim.getDescription());
         aimForm.setPriority(aim.getPriority());
@@ -35,7 +35,7 @@ public class AimFormBuilderImpl implements AimFormBuilder {
         for(Step step : aim.getSteps()) {
             stepForms.add(stepFormBuilder.buildStepForm(step));
         }
-        aimForm.setStepForms(stepForms);
+        aimForm.setSteps(stepForms);
         return aimForm;
     }
 

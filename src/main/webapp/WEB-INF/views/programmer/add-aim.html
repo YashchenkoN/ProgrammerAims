@@ -7,6 +7,7 @@
     <link href="../../../resources/css/aim-add.css" rel="stylesheet" media="screen" th:href="@{/resources/css/aim-add.css}" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
 </head>
 <body>
 <div th:replace="fragments/header :: header">&nbsp;</div>
@@ -55,19 +56,19 @@
                 </div>
             </div>
             <legend>Добавление шагов</legend>
-            <div class="form-group" th:with="stepFormList=*{stepForms}">
+            <div class="form-group" th:with="stepFormList=*{steps}">
                 <div class="form-group" th:if="${#lists.isEmpty(stepFormList)}">
                     <span th:text="'Шагов пока нету'"></span>
                 </div>
                 <button type="submit" name="addRow" class="btn btn-default">Добавить шаг</button>
             </div>
-            <div th:each="stepForm, rowStat : *{stepForms}">
+            <div th:each="stepForm, rowStat : *{steps}">
                 <!--<ul>-->
                 <div class="form-group">
                     <label for="difficult" class="col-lg-4 control-label">Сложность</label>
                     <div class="col-lg-8">
-                        <select id="difficult" class="form-control" th:field="*{stepForms[__${rowStat.index}__].difficult}">
-                            <option th:each="difficult : ${T(com.programmer.step.Difficult).values()}"
+                        <select id="difficult" class="form-control" th:field="*{steps[__${rowStat.index}__].difficult}">
+                            <option th:each="difficult : ${T(com.programmer.entity.Difficult).values()}"
                                     th:value="${difficult}"
                                     th:text="${difficult.value}">
                             </option>
@@ -77,7 +78,7 @@
                 <div class="form-group">
                     <label for="specification" class="col-lg-4 control-label">Описание шага</label>
                     <div class="col-lg-8">
-                        <input type="text" class="form-control" id="specification" placeholder="Описание шага" th:field="*{stepForms[__${rowStat.index}__].specification}" autocomplete="off"/>
+                        <input type="text" class="form-control" id="specification" placeholder="Описание шага" th:field="*{steps[__${rowStat.index}__].specification}" autocomplete="off"/>
                     </div>
                 </div>
                 <div class="form-group">

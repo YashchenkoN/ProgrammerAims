@@ -24,7 +24,7 @@ import java.util.Calendar;
  */
 @RestController
 @RequestMapping(value = "/api/")
-public class AuthController {
+public class AuthEndpoint {
 
     @Autowired
     private ProgrammerFormValidator validator;

@@ -56,7 +56,7 @@ public class ProgrammerController {
         if(loggedProgrammer != null) {
             return "redirect:/programmer/" + loggedProgrammer.getId().toString();
         } else {
-            MessageHelper.addErrorAttribute(ra, "programmer.notfound");
+            MessageHelper.addErrorAttribute(ra, "programmer.permission");
             return "redirect:/";
         }
     }

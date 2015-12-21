@@ -49,10 +49,6 @@ public class Programmer implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private ProgrammerRole role;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Fetch(value = FetchMode.SUBSELECT)
-    private List<Aim> aims;
-
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Blog> blogs;
 
@@ -60,7 +56,6 @@ public class Programmer implements Serializable {
         registrationDate = Calendar.getInstance();
         lastVisit = Calendar.getInstance();
         activationKey = KeyGenerationUtil.getKey();
-        aims = new ArrayList<>();
     }
 
     public Programmer(Programmer user) {
@@ -143,24 +138,6 @@ public class Programmer implements Serializable {
 
     public void setRole(ProgrammerRole role) {
         this.role = role;
-    }
-
-    public List<Aim> getAims() {
-        return aims;
-    }
-
-    public void setAims(List<Aim> aims) {
-        this.aims = aims;
-    }
-
-    public void addAim(Aim aim) {
-        if(aim.getProgrammer() != this)
-            aim.setProgrammer(this);
-        aims.add(aim);
-    }
-
-    public void removeAim(Aim aim) {
-        aims.remove(aim);
     }
 
     public List<Blog> getBlogs() {

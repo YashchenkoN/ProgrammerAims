@@ -12,8 +12,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 /**
  * Created by kolyan on 8/24/15.
@@ -29,10 +31,15 @@ public class AimAddController {
     private AimBuilder aimBuilder;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add(AimForm aimForm, Model model) {
-        aimForm.getStepForms().add(new StepForm());
-        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
-        return "programmer/add-aim";
+    public String add(Principal principal, AimForm aimForm, Model model, RedirectAttributes ra) {
+        if(principal != null) {
+            aimForm.getSteps().add(new StepForm());
+            model.addAttribute("programmer", programmerService.getLoggedProgrammer());
+            return "programmer/add-aim";
+        } else {
+            MessageHelper.addErrorAttribute(ra, "programmer.permission");
+            return "redirect:/";
+        }
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -40,13 +47,13 @@ public class AimAddController {
                       Model model) {
         aimBuilder.buildAim(aimForm);
         MessageHelper.addSuccessAttribute(model, "Aim added success");
-        return "redirect:/";
+        return "redirect:/aim/edit";
     }
 
     @RequestMapping(value = "/add", params = {"addRow"})
     public String addRow(AimForm aimForm, BindingResult bindingResult, Model model) {
         model.addAttribute("programmer", programmerService.getLoggedProgrammer());
-        aimForm.getStepForms().add(new StepForm());
+        aimForm.getSteps().add(new StepForm());
         return "programmer/add-aim";
     }
 
@@ -55,8 +62,8 @@ public class AimAddController {
                             HttpServletRequest request) {
         model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         Integer index = Integer.valueOf(request.getParameter("removeRow"));
-        if(!aimForm.getStepForms().isEmpty()) {
-            aimForm.getStepForms().remove(index.intValue());
+        if(!aimForm.getSteps().isEmpty()) {
+            aimForm.getSteps().remove(index.intValue());
         }
         return "programmer/add-aim";
     }

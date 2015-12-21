@@ -2,8 +2,6 @@ package com.programmer.commons;
 
 import com.programmer.entity.Aim;
 import com.programmer.entity.Step;
-import com.programmer.commons.StepForm;
-import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,29 +11,22 @@ import java.util.List;
  */
 public class AimForm {
 
-    private Long aimId;
-
-    @NotBlank
+    private Long id;
     private String name;
-
-    @NotBlank
     private String description;
-
-    @NotBlank
     private Long priority;
-
-    private List<StepForm> stepForms;
+    private List<StepForm> steps;
 
     public AimForm() {
-        stepForms = new ArrayList<>();
+        steps = new ArrayList<>();
     }
 
-    public Long getAimId() {
-        return aimId;
+    public Long getId() {
+        return id;
     }
 
-    public void setAimId(Long aimId) {
-        this.aimId = aimId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -62,18 +53,18 @@ public class AimForm {
         this.priority = priority;
     }
 
-    public List<StepForm> getStepForms() {
-        return stepForms;
+    public List<StepForm> getSteps() {
+        return steps;
     }
 
-    public void setStepForms(List<StepForm> stepForms) {
-        this.stepForms = stepForms;
+    public void setSteps(List<StepForm> steps) {
+        this.steps = steps;
     }
 
     public Aim createAim() {
         List<Step> steps = new ArrayList<>();
-        for(StepForm stepForm : stepForms)
+        for(StepForm stepForm : this.steps)
             steps.add(stepForm.createStep());
-        return new Aim(aimId, name, description, steps, priority);
+        return new Aim(id, name, description, steps, priority);
     }
 }

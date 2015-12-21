@@ -1,4 +1,4 @@
-package com.programmer.rest;
+package com.programmer.commons;
 
 /**
  * Created by kolyan on 10/14/15.

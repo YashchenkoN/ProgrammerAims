@@ -17,6 +17,7 @@ public class ProgrammerForm extends BaseApiResponse {
 
     private Long id;
     private String email;
+    private String role;
     private String name;
     private String registrationDate;
     private String lastVisitDate;
@@ -37,6 +38,14 @@ public class ProgrammerForm extends BaseApiResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getName() {

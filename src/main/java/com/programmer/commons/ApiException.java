@@ -1,4 +1,4 @@
-package com.programmer.rest;
+package com.programmer.commons;
 
 import com.programmer.rest.beans.BaseApiResponse;
 

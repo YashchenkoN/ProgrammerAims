@@ -29,9 +29,7 @@
                     <webApp>
                         <resourceBases>
                             <resourceBase>src/main/webapp</resourceBase>
-                            <!--<resourceBase>../frontend/target/resources</resourceBase>-->
                         </resourceBases>
-                        <!--<extraClasspath>${basedir}/target/classes/;${basedir}/../api/target/classes</extraClasspath>-->
                     </webApp>
                 </configuration>
             </plugin>

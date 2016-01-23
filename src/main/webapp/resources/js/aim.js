@@ -2,7 +2,8 @@
  * Created by kolyan on 21.12.15.
  */
 $(document).ready(function() {
-    $('#delete_aim').click(function() {
+    $('#container_aims').find(':button').click(function() {
+        console.log($(event.target));
         $.ajax({
             headers: {
                 'Accept': 'application/json',
@@ -15,8 +16,8 @@ $(document).ready(function() {
                 id: $('#aim_id').val()
             }),
             success: function(result) {
-                if(result.isDeleted) {
-                    alert('#aim'.concat(result.deletedId));
+                console.log(result);
+                if(result.deleted) {
                     $('#aim'.concat(result.deletedId)).remove();
                 } else {
 

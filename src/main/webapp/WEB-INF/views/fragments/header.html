@@ -20,9 +20,10 @@
                 <ul class="nav navbar-nav">
                     <li th:if="${#authorization.expression('isAuthenticated()')}" class="active"><a th:href="@{/programmer/my}">Моя страница</a></li>
                     <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/aim/add}">Добавить цель</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/aim/edit}">Редактировать цели</a></li>
                     <li><a href="#" th:href="@{/programmer/list}">Все пользователи</a></li>
-                    <li><a href="#about">О сайте</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#aboutModal" data-toggle="modal" data-target="#aboutModal">О сайте</a></li>
+                    <li><a href="#contactModal" data-toggle="modal" data-target="#contactModal">Контакты</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:if="${#authorization.expression('!isAuthenticated()')}">
@@ -44,8 +45,11 @@
             <h5 class="text-center">You must activate your email</h5>
         </div>
     </th:block>
+    <!--Вставка фрагментів-->
     <div th:replace="fragments/settings :: settings">Header</div>
     <div th:replace="fragments/authModal :: auth">Header</div>
+    <div th:replace="fragments/about :: about">Header</div>
+    <div th:replace="fragments/contact :: contact">Header</div>
 </div>
 </body>
 </html>

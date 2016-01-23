@@ -26,6 +26,7 @@ public class AimEndpoint {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public AimCreateResponse create(@RequestBody AimCreateRequest aimCreateRequest) {
         AimCreateResponse aimCreateResponse = new AimCreateResponse();
+        // todo creating aim
         return aimCreateResponse;
     }
 

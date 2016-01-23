@@ -15,11 +15,6 @@
     <th:block th:if="${message != null}">
         <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
-    <th:block th:if="${programmer.role == 'ROLE_UNACTIVE'}">
-        <div th:fragment="alert (type, message)" class="alert alert-dismissable" th:classappend="'alert-danger'">
-            <span th:text="'You must activate your email'">Test</span>
-        </div>
-    </th:block>
 
     <form class="form-narrow form-horizontal" action="#" th:action="@{/aim/edit}" method="post" th:object="${aimForm}">
         <th:block th:if="${#fields.hasErrors('${aimForm.*}')}">
@@ -68,7 +63,7 @@
                     <label for="difficult" class="col-lg-4 control-label">Сложность</label>
                     <div class="col-lg-8">
                         <select id="difficult" class="form-control" th:field="*{steps[__${rowStat.index}__].difficult}">
-                            <option th:each="difficult : ${T(com.programmer.step.Difficult).values()}"
+                            <option th:each="difficult : ${T(com.programmer.entity.Difficult).values()}"
                                     th:value="${difficult}"
                                     th:text="${difficult.value}">
                             </option>

@@ -40,11 +40,11 @@ public class AimBuilder {
             else
                 stepService.add(step);
         }
-        if(aim.getId() != null)
+        if(aim.getId() != null) {
             aimService.update(aim);
-        else
+        } else {
             aimService.add(aim);
-        programmer.addAim(aim);
+        }
         programmerService.update(programmer);
         return aim;
     }

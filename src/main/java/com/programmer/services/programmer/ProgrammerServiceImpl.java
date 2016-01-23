@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerRequest;
 import com.programmer.entity.Programmer;
 import com.programmer.dao.ProgrammerDao;
 import com.programmer.utils.KeyGenerationUtil;

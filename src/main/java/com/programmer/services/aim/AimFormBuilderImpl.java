@@ -1,9 +1,9 @@
 package com.programmer.services.aim;
 
-import com.programmer.commons.AimForm;
+import com.programmer.api.aim.AimForm;
 import com.programmer.entity.Aim;
 import com.programmer.entity.Step;
-import com.programmer.commons.StepForm;
+import com.programmer.api.StepForm;
 import com.programmer.services.step.StepFormBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

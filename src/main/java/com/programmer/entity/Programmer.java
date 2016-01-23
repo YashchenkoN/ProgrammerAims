@@ -1,9 +1,6 @@
 package com.programmer.entity;
 
-import com.programmer.blog.Blog;
 import com.programmer.utils.KeyGenerationUtil;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

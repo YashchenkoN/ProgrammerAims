@@ -18,14 +18,14 @@
     </th:block>
 
     <div id="container_aims" class="container_aims">
-        <th:block th:if="${programmer.aims != null}">
-            <div th:each="two_aims : ${T(com.google.common.collect.Lists).partition(programmer.aims, 2)}" class="row-fluid">
+        <th:block th:if="${aims != null}">
+            <div th:each="two_aims : ${T(com.google.common.collect.Lists).partition(aims, 2)}" class="row-fluid">
                 <div th:each="aim, rowStat : ${two_aims}" class="span6">
                     <div th:replace="programmer/aim_template::aim-edit-template(${aim}, ${rowStat.index})"/>
                 </div>
             </div>
         </th:block>
-        <div th:if="${#lists.isEmpty(programmer.aims)}">
+        <div th:if="${#lists.isEmpty(aims)}">
             <span>Нет целей</span>
         </div>
     </div>

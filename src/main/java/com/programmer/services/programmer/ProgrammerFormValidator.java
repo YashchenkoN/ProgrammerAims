@@ -1,6 +1,6 @@
 package com.programmer.services.programmer;
 
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerRequest;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.InternetAddress;

@@ -1,13 +1,13 @@
 package com.programmer.rest;
 
-import com.programmer.commons.ApiError;
-import com.programmer.commons.ApiException;
-import com.programmer.commons.ProgrammerRequest;
-import com.programmer.commons.ProgrammerForm;
+import com.programmer.api.error.ApiError;
+import com.programmer.api.error.ApiException;
+import com.programmer.api.programmer.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerForm;
 import com.programmer.entity.Programmer;
 import com.programmer.services.programmer.*;
 import com.programmer.entity.Roles;
-import com.programmer.rest.beans.ProgrammerCreateResponse;
+import com.programmer.api.programmer.ProgrammerCreateResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +34,6 @@ public class ProgrammerEndpoint {
     @Autowired
     private ProgrammerFormBuilder programmerFormBuilder;
 
-    @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ProgrammerCreateResponse create(@RequestBody ProgrammerRequest programmerForm) throws ApiException {
@@ -53,7 +52,6 @@ public class ProgrammerEndpoint {
         return programmerCreateResponse;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/read/{id}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ProgrammerForm read(@PathVariable("id") String id) throws ApiException {

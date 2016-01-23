@@ -1,6 +1,6 @@
 package com.programmer.services.programmer;
 
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerRequest;
 import com.programmer.entity.Programmer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.programmer.services.aim;
 
 import com.programmer.entity.Aim;
-import com.programmer.commons.AimForm;
+import com.programmer.api.aim.AimForm;
 import com.programmer.entity.Programmer;
 import com.programmer.services.programmer.ProgrammerService;
 import com.programmer.entity.Step;

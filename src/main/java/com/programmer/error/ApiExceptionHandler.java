@@ -1,8 +1,8 @@
 package com.programmer.error;
 
-import com.programmer.commons.ApiError;
-import com.programmer.commons.ApiException;
-import com.programmer.rest.beans.BaseApiResponse;
+import com.programmer.api.error.ApiError;
+import com.programmer.api.error.ApiException;
+import com.programmer.api.BaseApiResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;

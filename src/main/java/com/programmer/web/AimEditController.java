@@ -1,15 +1,13 @@
 package com.programmer.web;
 
-import com.programmer.commons.ProgrammerForm;
-import com.programmer.commons.AimForm;
+import com.programmer.api.aim.AimForm;
+import com.programmer.entity.Aim;
 import com.programmer.services.aim.AimFormBuilder;
 import com.programmer.services.aim.AimBuilder;
 import com.programmer.services.aim.AimService;
-import com.programmer.entity.Programmer;
-import com.programmer.services.programmer.ProgrammerFormBuilder;
 import com.programmer.services.programmer.ProgrammerService;
-import com.programmer.commons.StepForm;
-import com.programmer.support.web.MessageHelper;
+import com.programmer.api.StepForm;
+import com.programmer.utils.MessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by kolyan on 9/6/15.
@@ -41,15 +41,15 @@ public class AimEditController {
     @Autowired
     private AimBuilder aimBuilder;
 
-    @Autowired
-    private ProgrammerFormBuilder programmerFormBuilder;
-
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit(Principal principal, Model model, RedirectAttributes ra) {
         if(principal != null) {
-            Programmer programmer = programmerService.getLoggedProgrammer();
-            ProgrammerForm programmerForm = programmerFormBuilder.build(programmer.getId());
-            model.addAttribute("programmer", programmerForm);
+            List<Aim> listOfProgrammerAims = aimService.getListOfProgrammerAims(programmerService.getLoggedProgrammer());
+            List<AimForm> aims = listOfProgrammerAims.stream()
+                    .map(Aim::getId)
+                    .map(aimFormBuilder::buildAimForm)
+                    .collect(Collectors.toList());
+            model.addAttribute("aims", aims);
             return "programmer/aims-edit";
         } else {
             MessageHelper.addErrorAttribute(ra, "programmer.permission");
@@ -61,13 +61,11 @@ public class AimEditController {
     public String editByNumber(@PathVariable Long id, Model model, AimForm aimForm) {
         aimForm = aimFormBuilder.buildAimForm(id);
         model.addAttribute("aimForm", aimForm);
-        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         return "programmer/aim-edit";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editByNumberPost(@PathVariable Long id, Model model, AimForm aimForm) {
-        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         model.addAttribute("aimForm", aimForm);
         aimBuilder.buildAim(aimForm);
         MessageHelper.addSuccessAttribute(model, "Сохранено");
@@ -76,7 +74,6 @@ public class AimEditController {
 
     @RequestMapping(value = "/edit/{id}", params = {"addRow"})
     public String addRow(@PathVariable Long id, AimForm aimForm, BindingResult bindingResult, Model model) {
-        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         aimForm.getSteps().add(new StepForm());
         return "programmer/add-edit";
     }
@@ -84,7 +81,6 @@ public class AimEditController {
     @RequestMapping(value = "/edit/{id}", params = {"removeRow"})
     public String removeRow(@PathVariable Long id, AimForm aimForm, BindingResult bindingResult, Model model,
                             HttpServletRequest request) {
-        model.addAttribute("programmer", programmerService.getLoggedProgrammer());
         Integer index = Integer.valueOf(request.getParameter("removeRow"));
         if(!aimForm.getSteps().isEmpty()) {
             aimForm.getSteps().remove(index.intValue());

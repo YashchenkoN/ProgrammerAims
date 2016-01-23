@@ -1,6 +1,6 @@
 package com.programmer.services.step;
 
-import com.programmer.commons.StepForm;
+import com.programmer.api.StepForm;
 import com.programmer.entity.Step;
 import org.springframework.stereotype.Service;
 

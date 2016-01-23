@@ -1,7 +1,7 @@
 package com.programmer.rest;
 
-import com.programmer.commons.AuthResponse;
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.auth.AuthResponse;
+import com.programmer.api.programmer.ProgrammerRequest;
 import com.programmer.entity.Programmer;
 import com.programmer.services.programmer.ProgrammerFormValidator;
 import com.programmer.services.programmer.ProgrammerService;
@@ -27,7 +27,6 @@ public class UserEndpoint {
     @Autowired
     private ProgrammerFormValidator validator;
 
-    @ResponseBody
     @PreAuthorize("hasAnyRole('ROLE_ACTIVE, ROLE_UNACTIVE, ROLE_ADMIN')")
     @RequestMapping(value = "settings", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,

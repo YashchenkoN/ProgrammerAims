@@ -1,9 +1,9 @@
 package com.programmer.rest;
 
-import com.programmer.commons.AuthResponse;
-import com.programmer.mail.MailService;
+import com.programmer.api.auth.AuthResponse;
+import com.programmer.services.MailService;
 import com.programmer.entity.Programmer;
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerRequest;
 import com.programmer.services.programmer.ProgrammerRoleService;
 import com.programmer.entity.Roles;
 import com.programmer.services.programmer.ProgrammerFormValidator;
@@ -44,7 +44,6 @@ public class AuthEndpoint {
     @RequestMapping(value = "register", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
     public AuthResponse reg(@RequestBody ProgrammerRequest signupForm, HttpServletRequest request) {
         AuthResponse authResponse = new AuthResponse();
         boolean isNameValid = validator.validateName(signupForm.getName());
@@ -82,7 +81,6 @@ public class AuthEndpoint {
     @RequestMapping(value = "auth", method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
     public AuthResponse auth(@RequestBody ProgrammerRequest authRequest) {
         AuthResponse authResponse = new AuthResponse();
         Programmer programmer = programmerService.getByEmailAndPassword(authRequest.getEmail(), authRequest.getPassword());

@@ -1,6 +1,6 @@
 package com.programmer.services.programmer;
 
-import com.programmer.MainDao;
+import com.programmer.dao.MainDao;
 import com.programmer.entity.ProgrammerRole;
 import com.programmer.entity.Roles;
 import org.hibernate.criterion.Restrictions;

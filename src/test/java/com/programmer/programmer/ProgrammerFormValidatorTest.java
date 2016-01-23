@@ -1,6 +1,6 @@
 package com.programmer.programmer;
 
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerRequest;
 import com.programmer.config.WebAppConfigurationAware;
 import com.programmer.services.programmer.ProgrammerFormValidator;
 import org.junit.Assert;

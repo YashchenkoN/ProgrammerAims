@@ -1,14 +1,14 @@
 package com.programmer.services.programmer;
 
-import com.programmer.commons.ProgrammerRequest;
-import com.programmer.commons.ProgrammerForm;
+import com.programmer.api.programmer.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerForm;
 import com.programmer.entity.Aim;
-import com.programmer.commons.AimForm;
+import com.programmer.api.aim.AimForm;
 import com.programmer.entity.Programmer;
 import com.programmer.services.aim.AimFormBuilder;
-import com.programmer.blog.Blog;
-import com.programmer.blog.BlogForm;
-import com.programmer.blog.BlogFormBuilder;
+import com.programmer.entity.Blog;
+import com.programmer.api.blog.BlogForm;
+import com.programmer.services.blog.BlogFormBuilder;
 import com.programmer.services.aim.AimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

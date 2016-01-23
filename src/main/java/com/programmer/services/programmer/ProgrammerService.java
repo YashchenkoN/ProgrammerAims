@@ -1,6 +1,6 @@
 package com.programmer.services.programmer;
 
-import com.programmer.commons.ProgrammerRequest;
+import com.programmer.api.programmer.ProgrammerRequest;
 import com.programmer.entity.Programmer;
 
 import java.util.List;

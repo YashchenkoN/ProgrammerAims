@@ -1,6 +1,5 @@
 package com.programmer.dao;
 
-import com.programmer.MainDao;
 import com.programmer.entity.Programmer;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;

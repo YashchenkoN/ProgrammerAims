@@ -1,10 +1,10 @@
 package com.programmer.rest;
 
-import com.programmer.commons.AimDeleteRequest;
-import com.programmer.commons.AimDeleteResponse;
+import com.programmer.api.aim.AimDeleteRequest;
+import com.programmer.api.aim.AimDeleteResponse;
 import com.programmer.entity.Aim;
-import com.programmer.rest.beans.AimCreateRequest;
-import com.programmer.rest.beans.AimCreateResponse;
+import com.programmer.api.aim.AimCreateRequest;
+import com.programmer.api.aim.AimCreateResponse;
 import com.programmer.services.aim.AimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,7 +20,6 @@ public class AimEndpoint {
     @Autowired
     private AimService aimService;
 
-    @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -30,7 +29,6 @@ public class AimEndpoint {
         return aimCreateResponse;
     }
 
-    @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
